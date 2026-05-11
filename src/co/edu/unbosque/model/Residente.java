@@ -175,7 +175,7 @@ public class Residente extends Persona {
 
 	@Override
 	public String toString() {
-		return "Residente [tipo=" + tipo + ", numeroApartaento=" + numeroApartaento + ", torre=" + torre
+		return super.toString()+"Residente [tipo=" + tipo + ", numeroApartaento=" + numeroApartaento + ", torre=" + torre
 				+ ", parqueaderoAsignado=" + parqueaderoAsignado + ", mascotaRegistrada=" + mascotaRegistrada
 				+ ", vehiculoRegistrado=" + vehiculoRegistrado + ", tieneBicicleta=" + tieneBicicleta
 				+ ", numBicicletero=" + numBicicletero + ", tienePaquete=" + tienePaquete + ", tieneMulta=" + tieneMulta

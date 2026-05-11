@@ -18,16 +18,16 @@ public class PersonaAseo extends Persona {
 	}
 
 	public PersonaAseo(String nombre, String apellido, int edad, String genero, String correo, long id, long telefono,
-			String rutaFoto, String empresa, String horario, String observacion) {
-		super(nombre, apellido, edad, genero, correo, id, telefono, rutaFoto);
+			String rutaFoto, String estado, String empresa, String horario, String observacion) {
+		super(nombre, apellido, edad, genero, correo, id, telefono, rutaFoto, estado);
 		this.empresa = empresa;
 		this.horario = horario;
 		this.observacion = observacion;
 	}
 
 	public PersonaAseo(String nombre, String apellido, int edad, String genero, String correo, long id, long telefono,
-			String rutaFoto) {
-		super(nombre, apellido, edad, genero, correo, id, telefono, rutaFoto);
+			String rutaFoto, String estado) {
+		super(nombre, apellido, edad, genero, correo, id, telefono, rutaFoto, estado);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -57,11 +57,9 @@ public class PersonaAseo extends Persona {
 
 	@Override
 	public String toString() {
-		return "PersonaAseo [empresa=" + empresa + ", horario=" + horario + ", observacion=" + observacion + "]";
+		return super.toString() + "PersonaAseo [empresa=" + empresa + ", horario=" + horario + ", observacion=" + observacion + "]";
 	}
-	
-	
-	
+
 	
 
 }

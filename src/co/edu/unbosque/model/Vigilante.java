@@ -21,18 +21,21 @@ public class Vigilante extends Persona {
 		this.novedad = novedad;
 	}
 
+	
+
 	public Vigilante(String nombre, String apellido, int edad, String genero, String correo, long id, long telefono,
-			String rutaFoto, String turno, String empresaSeguridad, LocalDateTime fechaInicio, String novedad) {
-		super(nombre, apellido, edad, genero, correo, id, telefono, rutaFoto);
+			String rutaFoto, String estado, String turno, String empresaSeguridad, LocalDateTime fechaInicio,
+			String novedad) {
+		super(nombre, apellido, edad, genero, correo, id, telefono, rutaFoto, estado);
 		this.turno = turno;
 		this.empresaSeguridad = empresaSeguridad;
 		this.fechaInicio = fechaInicio;
 		this.novedad = novedad;
 	}
-
+	
 	public Vigilante(String nombre, String apellido, int edad, String genero, String correo, long id, long telefono,
-			String rutaFoto) {
-		super(nombre, apellido, edad, genero, correo, id, telefono, rutaFoto);
+			String rutaFoto, String estado) {
+		super(nombre, apellido, edad, genero, correo, id, telefono, rutaFoto, estado);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -70,11 +73,9 @@ public class Vigilante extends Persona {
 
 	@Override
 	public String toString() {
-		return "Vigilante [turno=" + turno + ", empresaSeguridad=" + empresaSeguridad + ", fechaInicio=" + fechaInicio
+		return super.toString() + "Vigilante [turno=" + turno + ", empresaSeguridad=" + empresaSeguridad + ", fechaInicio=" + fechaInicio
 				+ ", novedad=" + novedad + "]";
 	}
-	
-	
-	
 
+	
 }

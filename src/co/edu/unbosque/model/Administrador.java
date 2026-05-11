@@ -22,8 +22,8 @@ public class Administrador extends Persona {
 	}
 
 	public Administrador(String nombre, String apellido, int edad, String genero, String correo, long id, long telefono,
-			String rutaFoto, String cargo, LocalDateTime fechaIncio, long nit, String nivelAcceso) {
-		super(nombre, apellido, edad, genero, correo, id, telefono, rutaFoto);
+			String rutaFoto, String estado, String cargo, LocalDateTime fechaIncio, long nit, String nivelAcceso) {
+		super(nombre, apellido, edad, genero, correo, id, telefono, rutaFoto, estado);
 		this.cargo = cargo;
 		this.fechaIncio = fechaIncio;
 		this.nit = nit;
@@ -31,8 +31,8 @@ public class Administrador extends Persona {
 	}
 
 	public Administrador(String nombre, String apellido, int edad, String genero, String correo, long id, long telefono,
-			String rutaFoto) {
-		super(nombre, apellido, edad, genero, correo, id, telefono, rutaFoto);
+			String rutaFoto, String estado) {
+		super(nombre, apellido, edad, genero, correo, id, telefono, rutaFoto, estado);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -70,11 +70,10 @@ public class Administrador extends Persona {
 
 	@Override
 	public String toString() {
-		return "Administrador [cargo=" + cargo + ", fechaIncio=" + fechaIncio + ", nit=" + nit + ", nivelAcceso="
+		return super.toString() +  "Administrador [cargo=" + cargo + ", fechaIncio=" + fechaIncio + ", nit=" + nit + ", nivelAcceso="
 				+ nivelAcceso + "]";
 	}
-	
-	
+
 	
 
 }

@@ -45,7 +45,7 @@ public class Parqueadero extends ZonaComun {
 
 	@Override
 	public String toString() {
-		return "Parqueadero [numParqueadero=" + numParqueadero + ", numeroPuesto=" + numeroPuesto + "]";
+		return super.toString()+"Parqueadero [numParqueadero=" + numParqueadero + ", numeroPuesto=" + numeroPuesto + "]";
 	}
 	
 	
