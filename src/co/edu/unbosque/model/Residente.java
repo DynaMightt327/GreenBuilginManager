@@ -10,6 +10,7 @@ public class Residente extends Persona {
 	private String parqueaderoAsignado;
 	private String mascotaRegistrada;
 	private String vehiculoRegistrado;
+	private boolean tieneCargadorDeAuto;
 	private boolean tieneBicicleta;
 	private int numBicicletero;
 	private boolean tienePaquete;
@@ -23,8 +24,8 @@ public class Residente extends Persona {
 	}
 
 	public Residente(String tipo, int numeroApartaento, String torre, String parqueaderoAsignado,
-			String mascotaRegistrada, String vehiculoRegistrado, boolean tieneBicicleta, int numBicicletero,
-			boolean tienePaquete, boolean tieneMulta, String datoPaquete, String datoMulta,
+			String mascotaRegistrada, String vehiculoRegistrado, boolean tieneCargadorDeAuto, boolean tieneBicicleta,
+			int numBicicletero, boolean tienePaquete, boolean tieneMulta, String datoPaquete, String datoMulta,
 			LocalDateTime fechaDeInicio) {
 		super();
 		this.tipo = tipo;
@@ -33,6 +34,7 @@ public class Residente extends Persona {
 		this.parqueaderoAsignado = parqueaderoAsignado;
 		this.mascotaRegistrada = mascotaRegistrada;
 		this.vehiculoRegistrado = vehiculoRegistrado;
+		this.tieneCargadorDeAuto = tieneCargadorDeAuto;
 		this.tieneBicicleta = tieneBicicleta;
 		this.numBicicletero = numBicicletero;
 		this.tienePaquete = tienePaquete;
@@ -44,8 +46,8 @@ public class Residente extends Persona {
 
 	public Residente(String nombre, String apellido, int edad, String genero, String correo, long id, long telefono,
 			String rutaFoto, String estado, String tipo, int numeroApartaento, String torre, String parqueaderoAsignado,
-			String mascotaRegistrada, String vehiculoRegistrado, boolean tieneBicicleta, int numBicicletero,
-			boolean tienePaquete, boolean tieneMulta, String datoPaquete, String datoMulta,
+			String mascotaRegistrada, String vehiculoRegistrado, boolean tieneCargadorDeAuto, boolean tieneBicicleta,
+			int numBicicletero, boolean tienePaquete, boolean tieneMulta, String datoPaquete, String datoMulta,
 			LocalDateTime fechaDeInicio) {
 		super(nombre, apellido, edad, genero, correo, id, telefono, rutaFoto, estado);
 		this.tipo = tipo;
@@ -54,6 +56,7 @@ public class Residente extends Persona {
 		this.parqueaderoAsignado = parqueaderoAsignado;
 		this.mascotaRegistrada = mascotaRegistrada;
 		this.vehiculoRegistrado = vehiculoRegistrado;
+		this.tieneCargadorDeAuto = tieneCargadorDeAuto;
 		this.tieneBicicleta = tieneBicicleta;
 		this.numBicicletero = numBicicletero;
 		this.tienePaquete = tienePaquete;
@@ -117,6 +120,14 @@ public class Residente extends Persona {
 		this.vehiculoRegistrado = vehiculoRegistrado;
 	}
 
+	public boolean isTieneCargadorDeAuto() {
+		return tieneCargadorDeAuto;
+	}
+
+	public void setTieneCargadorDeAuto(boolean tieneCargadorDeAuto) {
+		this.tieneCargadorDeAuto = tieneCargadorDeAuto;
+	}
+
 	public boolean isTieneBicicleta() {
 		return tieneBicicleta;
 	}
@@ -175,14 +186,12 @@ public class Residente extends Persona {
 
 	@Override
 	public String toString() {
-		return super.toString()+"Residente [tipo=" + tipo + ", numeroApartaento=" + numeroApartaento + ", torre=" + torre
+		return "Residente [tipo=" + tipo + ", numeroApartaento=" + numeroApartaento + ", torre=" + torre
 				+ ", parqueaderoAsignado=" + parqueaderoAsignado + ", mascotaRegistrada=" + mascotaRegistrada
-				+ ", vehiculoRegistrado=" + vehiculoRegistrado + ", tieneBicicleta=" + tieneBicicleta
-				+ ", numBicicletero=" + numBicicletero + ", tienePaquete=" + tienePaquete + ", tieneMulta=" + tieneMulta
-				+ ", datoPaquete=" + datoPaquete + ", datoMulta=" + datoMulta + ", fechaDeInicio=" + fechaDeInicio
-				+ "]";
+				+ ", vehiculoRegistrado=" + vehiculoRegistrado + ", tieneCargadorDeAuto=" + tieneCargadorDeAuto
+				+ ", tieneBicicleta=" + tieneBicicleta + ", numBicicletero=" + numBicicletero + ", tienePaquete="
+				+ tienePaquete + ", tieneMulta=" + tieneMulta + ", datoPaquete=" + datoPaquete + ", datoMulta="
+				+ datoMulta + ", fechaDeInicio=" + fechaDeInicio + "]";
 	}
-
-	
 
 }

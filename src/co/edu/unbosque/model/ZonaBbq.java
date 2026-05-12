@@ -17,16 +17,16 @@ public class ZonaBbq extends ZonaComun {
 		this.tipoParrilla = tipoParrilla;
 	}
 
-	public ZonaBbq(String nombre, int capacidadMaxima, boolean estaDisponible, String horario, int numParrilla,
+	public ZonaBbq(int capacidadMaxima, boolean estaDisponible, String horario, String estado, int numParrilla,
 			boolean requiereDeposito, String tipoParrilla) {
-		super(nombre, capacidadMaxima, estaDisponible, horario);
+		super(capacidadMaxima, estaDisponible, horario, estado);
 		this.numParrilla = numParrilla;
 		this.requiereDeposito = requiereDeposito;
 		this.tipoParrilla = tipoParrilla;
 	}
 
-	public ZonaBbq(String nombre, int capacidadMaxima, boolean estaDisponible, String horario) {
-		super(nombre, capacidadMaxima, estaDisponible, horario);
+	public ZonaBbq(int capacidadMaxima, boolean estaDisponible, String horario, String estado) {
+		super(capacidadMaxima, estaDisponible, horario, estado);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -56,9 +56,11 @@ public class ZonaBbq extends ZonaComun {
 
 	@Override
 	public String toString() {
-		return super.toString()+"ZonaBbq [numParrilla=" + numParrilla + ", requiereDeposito=" + requiereDeposito + ", tipoParrilla="
+		return "ZonaBbq [numParrilla=" + numParrilla + ", requiereDeposito=" + requiereDeposito + ", tipoParrilla="
 				+ tipoParrilla + "]";
 	}
+
+	
 	
 	
 

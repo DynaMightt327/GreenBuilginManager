@@ -1,6 +1,6 @@
 package co.edu.unbosque.model;
 
-public class Parqueadero extends ZonaComun {
+public class Parqueadero {
 	
 	private int numParqueadero;
 	private int numeroPuesto;
@@ -13,18 +13,6 @@ public class Parqueadero extends ZonaComun {
 		super();
 		this.numParqueadero = numParqueadero;
 		this.numeroPuesto = numeroPuesto;
-	}
-
-	public Parqueadero(String nombre, int capacidadMaxima, boolean estaDisponible, String horario, int numParqueadero,
-			int numeroPuesto) {
-		super(nombre, capacidadMaxima, estaDisponible, horario);
-		this.numParqueadero = numParqueadero;
-		this.numeroPuesto = numeroPuesto;
-	}
-
-	public Parqueadero(String nombre, int capacidadMaxima, boolean estaDisponible, String horario) {
-		super(nombre, capacidadMaxima, estaDisponible, horario);
-		// TODO Auto-generated constructor stub
 	}
 
 	public int getNumParqueadero() {
