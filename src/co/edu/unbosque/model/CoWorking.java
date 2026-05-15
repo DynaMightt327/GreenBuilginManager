@@ -15,15 +15,15 @@ public class CoWorking extends ZonaComun {
 		this.estadoInternet = estadoInternet;
 	}
 
-	public CoWorking(int capacidadMaxima, boolean estaDisponible, String horario, int numPuestos,
+	public CoWorking(int capacidadMaxima, boolean estaDisponible, String horario, String estado, int numPuestos,
 			String estadoInternet) {
-		super(capacidadMaxima, estaDisponible, horario);
+		super(capacidadMaxima, estaDisponible, horario, estado);
 		this.numPuestos = numPuestos;
 		this.estadoInternet = estadoInternet;
 	}
 
-	public CoWorking(int capacidadMaxima, boolean estaDisponible, String horario) {
-		super(capacidadMaxima, estaDisponible, horario);
+	public CoWorking(int capacidadMaxima, boolean estaDisponible, String horario, String estado) {
+		super(capacidadMaxima, estaDisponible, horario, estado);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -45,10 +45,9 @@ public class CoWorking extends ZonaComun {
 
 	@Override
 	public String toString() {
-		return "CoWorking [numPuestos=" + numPuestos + ", estadoInternet=" + estadoInternet + "]";
+		return super.toString() + "CoWorking [numPuestos=" + numPuestos + ", estadoInternet=" + estadoInternet + "]";
 	}
-	
-	
+
 	
 
 }

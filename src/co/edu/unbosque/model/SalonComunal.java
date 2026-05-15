@@ -17,16 +17,16 @@ public class SalonComunal extends ZonaComun {
 		this.aream2 = aream2;
 	}
 
-	public SalonComunal(String nombre, int capacidadMaxima, boolean estaDisponible, String horario, boolean tieneCocina,
+	public SalonComunal(int capacidadMaxima, boolean estaDisponible, String horario, String estado, boolean tieneCocina,
 			boolean tieneAireAcondicionado, double aream2) {
-		super(nombre, capacidadMaxima, estaDisponible, horario);
+		super(capacidadMaxima, estaDisponible, horario, estado);
 		this.tieneCocina = tieneCocina;
 		this.tieneAireAcondicionado = tieneAireAcondicionado;
 		this.aream2 = aream2;
 	}
 
-	public SalonComunal(String nombre, int capacidadMaxima, boolean estaDisponible, String horario) {
-		super(nombre, capacidadMaxima, estaDisponible, horario);
+	public SalonComunal(int capacidadMaxima, boolean estaDisponible, String horario, String estado) {
+		super(capacidadMaxima, estaDisponible, horario, estado);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -56,10 +56,8 @@ public class SalonComunal extends ZonaComun {
 
 	@Override
 	public String toString() {
-		return super.toString()+ "SalonComunal [tieneCocina=" + tieneCocina + ", tieneAireAcondicionado=" + tieneAireAcondicionado
+		return super.toString() + "SalonComunal [tieneCocina=" + tieneCocina + ", tieneAireAcondicionado=" + tieneAireAcondicionado
 				+ ", aream2=" + aream2 + "]";
 	}
-	
-	
 
 }
