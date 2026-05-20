@@ -20,26 +20,42 @@ public class Controller implements ActionListener {
 		vf.getVp().getEntrar().addActionListener(this);
 		vf.getVp().getEntrar().setActionCommand("boton_entrar_app");
 		
-		vf.getVp().getPanSelect().getIniciarSesion().addActionListener(this);
-		vf.getVp().getPanSelect().getIniciarSesion().setActionCommand("boton_iniciar_sesion");
+		vf.getVp().getPanSelect().getResidente().addActionListener(this);
+		vf.getVp().getPanSelect().getResidente().setActionCommand("boton_entrar_residente");
 		
 		vf.getVp().getPanSelect().getAdmin().addActionListener(this);
 		vf.getVp().getPanSelect().getAdmin().setActionCommand("boton_entrar_admin");
 		
-		//===VENTANA INICIAR SESION===
-		vf.getVi().getIniciarSesion().addActionListener(this);
-		vf.getVi().getIniciarSesion().setActionCommand("boton_ingresar");
+		vf.getVp().getPanSelect().getEmpleado().addActionListener(this);
+		vf.getVp().getPanSelect().getEmpleado().setActionCommand("boton_entrar_empleado");
+		
+		//===VENTANA RESIDENTES===
+		vf.getVr().getIniciarSesion().addActionListener(this);
+		vf.getVr().getIniciarSesion().setActionCommand("boton_ingresar_residente");
 		
 		//===VENTANA ADMINISTRADORES===
 		vf.getVa().getIniciarSesion().addActionListener(this);
 		vf.getVa().getIniciarSesion().setActionCommand("boton_ingresar_admin");
 		
+		vf.getVa().getPpa().getRegistrar().addActionListener(this);
+		vf.getVa().getPpa().getRegistrar().setActionCommand("boton_registrar_persona");
+		
+		// ===VENTANA EMPLEADOS===
+		vf.getVe().getIniciarSesion().addActionListener(this);
+		vf.getVe().getIniciarSesion().setActionCommand("boton_ingresar_empleado");
+		
 		//===BOTONES DE VOLVER===
 		vf.getVa().getVolver().addActionListener(this);
 		vf.getVa().getVolver().setActionCommand("boton_volver_en_va");
 		
-		vf.getVi().getVolver().addActionListener(this);
-		vf.getVi().getVolver().setActionCommand("boton_volver_en_vi");
+		vf.getVr().getVolver().addActionListener(this);
+		vf.getVr().getVolver().setActionCommand("boton_volver_en_vr");
+
+		vf.getVe().getVolver().addActionListener(this);
+		vf.getVe().getVolver().setActionCommand("boton_volver_en_ve");
+		
+		vf.getVa().getPpa().getVolver().addActionListener(this);
+		vf.getVa().getPpa().getVolver().setActionCommand("boton_volver_iniciar_va");
 		
 	}
 
@@ -52,9 +68,9 @@ public class Controller implements ActionListener {
 			vf.getVp().getEntrar().setVisible(false);
 			break;
 		}
-		case "boton_iniciar_sesion":{
+		case "boton_entrar_residente":{
 			vf.getVp().setVisible(false);
-			vf.getVi().setVisible(true);
+			vf.getVr().setVisible(true);
 			break;
 		}
 		case "boton_entrar_admin":{
@@ -62,19 +78,38 @@ public class Controller implements ActionListener {
 			vf.getVa().setVisible(true);
 			break;
 		}
+		case "boton_entrar_empleado":{
+			vf.getVp().setVisible(false);
+			vf.getVe().setVisible(true);
+			break;
+		}
 		case "boton_volver_en_va":{
 			vf.getVa().setVisible(false);
 			vf.getVp().setVisible(true);
 			break;
 		}
-		case "boton_volver_en_vi":{
-			vf.getVi().setVisible(false);
+		case "boton_volver_en_vr":{
+			vf.getVr().setVisible(false);
+			vf.getVp().setVisible(true);
+			break;
+		}
+		case "boton_volver_en_ve":{
+			vf.getVe().setVisible(false);
 			vf.getVp().setVisible(true);
 			break;
 		}
 		case "boton_ingresar_admin":{
 			vf.getVa().getPanelUno().setVisible(false);
 			vf.getVa().getPpa().setVisible(true);
+			break;
+		}
+		case "boton_registrar_persona":{
+			vf.getVa().getPpa().getPr().setVisible(true);
+			break;
+		}
+		case "boton_volver_iniciar_va":{
+			vf.getVa().getPpa().setVisible(false);
+			vf.getVa().getPanelUno().setVisible(true);
 			break;
 		}
 		default:{

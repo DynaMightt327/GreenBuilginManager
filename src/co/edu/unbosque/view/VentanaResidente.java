@@ -7,16 +7,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class VentanaAdministrador extends JFrame {
-	
-	private JPanel panelUno;
-	private PanelPrincipalAdministrador ppa;
-	
+public class VentanaResidente extends JFrame {
+
 	private JLabel titulo;
 	private JLabel lDocumento;
 	private JTextField tDocumento;
@@ -27,30 +23,20 @@ public class VentanaAdministrador extends JFrame {
 	private JButton volver;
 	private JLabel fondo;
 	
-	public VentanaAdministrador() {
+	public VentanaResidente() {
 		inicializarComponentes();
 		setVisible(false);
 	}
 
 	public void inicializarComponentes() {
 		// CONFIGURACION DE LA VENTANA
-		setTitle("VENTANA ADMINISTRADOR");
+		setTitle("VENTANA RESIDENTE");
 		setBounds(230, 5, 1100, 720);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
 		getContentPane().setBackground(Color.gray);
 		getContentPane().setLayout(null);
-		
-		ppa = new PanelPrincipalAdministrador();
-		ppa.setVisible(false);
-		add(ppa);
-		
-		panelUno = new JPanel();
-		panelUno.setLayout(null);
-		panelUno.setBounds(0, 0, 1100, 720);
-		panelUno.setBackground(Color.decode("#99bc9f"));
-		add(panelUno);
-		
+
 		ImageIcon icon = new ImageIcon("logo.jpeg");
 		this.setIconImage(icon.getImage());
 		
@@ -58,8 +44,7 @@ public class VentanaAdministrador extends JFrame {
 		fondo = new JLabel(fondoImagen);
 		fondo.setBounds(0, 0, 1100, 720);
 		fondo.setLayout(null);
-		panelUno.add(fondo);
-		
+		add(fondo);
 
 		titulo = new JLabel("INICIA SESIÓN PARA CONTINUAR");
 		titulo.setBounds(575, 160, 580, 35);
@@ -69,7 +54,7 @@ public class VentanaAdministrador extends JFrame {
 		fondo.add(titulo);
 
 		info = new JTextArea(
-				"si no haces parte del consejo administrativo \nno puedes estar aqui");
+				"No tienes tu cuenta¿? Contáctate con el administrador de tu \nconjunto para que realice tu registro como residente");
 		info.setBounds(600, 590, 450, 42);
 		info.setFont(new Font("Arial", Font.BOLD, 15));
 		info.setForeground(Color.black);
@@ -112,7 +97,6 @@ public class VentanaAdministrador extends JFrame {
 		fondo.add(volver);
 
 	}
-
 
 	public JLabel getTitulo() {
 		return titulo;
@@ -170,20 +154,14 @@ public class VentanaAdministrador extends JFrame {
 		this.volver = volver;
 	}
 
-	public JPanel getPanelUno() {
-		return panelUno;
+	public JTextArea getInfo() {
+		return info;
 	}
 
-	public void setPanelUno(JPanel panelUno) {
-		this.panelUno = panelUno;
-	}
-
-	public PanelPrincipalAdministrador getPpa() {
-		return ppa;
-	}
-
-	public void setPpa(PanelPrincipalAdministrador ppa) {
-		this.ppa = ppa;
+	public void setInfo(JTextArea info) {
+		this.info = info;
 	}
 	
+	
+
 }

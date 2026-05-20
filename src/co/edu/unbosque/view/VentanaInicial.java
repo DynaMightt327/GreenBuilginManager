@@ -7,23 +7,24 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
 
-public class VentanaPrincipal extends JFrame {
+public class VentanaInicial extends JFrame {
 	
-	private JLabel titulo;
+	private JTextArea titulo;
 	private JButton entrar;
 	private JLabel fondo;
 	
 	private PanelSeleccionIngreso panSelect;
 
-	public VentanaPrincipal() {
+	public VentanaInicial() {
 		inicializarComponentes();
 		setVisible(true);
 	}
 
 	public void inicializarComponentes() {
 		// CONFIGURACION DE LA VENTANA
-		setTitle("GrennBuilding Manager");
+		setTitle("VENTANA INICIAL");
 		setBounds(230, 5, 1100, 720);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
@@ -33,8 +34,10 @@ public class VentanaPrincipal extends JFrame {
 		ImageIcon icon = new ImageIcon("logo.jpeg");
 		this.setIconImage(icon.getImage());
 		
-		ImageIcon fondoImagen = new ImageIcon(getClass().getResource("back.png"));
-		fondo = new JLabel(fondoImagen);
+//		ImageIcon fondoImagen = new ImageIcon(getClass().getResource("back.png"));
+//		fondo = new JLabel(fondoImagen);
+		fondo = new JLabel("");
+		fondo.setBackground(Color.white);
 		fondo.setBounds(0, 0, 1100, 720);
 		fondo.setLayout(null);
 		add(fondo);
@@ -43,15 +46,16 @@ public class VentanaPrincipal extends JFrame {
 		panSelect.setVisible(false);
 		fondo.add(panSelect);
 		
-		titulo = new JLabel("GREENBUILDING MANAGER");
-		titulo.setBounds(180, 110, 800, 70);
+		titulo = new JTextArea("GREENBUILDING \nMANAGER");
+		titulo.setBounds(80, 250, 450, 170);
 		titulo.setFont(new Font("Arial", Font.BOLD, 50));
 		titulo.setForeground(Color.black);
 		titulo.setBackground(null);
+		titulo.setEditable(false);
 		fondo.add(titulo);
 		
 		entrar = new JButton("INGRESAR");
-		entrar.setBounds(420, 410, 120, 50);
+		entrar.setBounds(850, 570, 120, 50);
 		entrar.setBackground(Color.black);
 		entrar.setForeground(Color.white);
 		entrar.setBorderPainted(false);
@@ -59,14 +63,6 @@ public class VentanaPrincipal extends JFrame {
 		entrar.setVisible(true);
 		fondo.add(entrar);
 
-	}
-
-	public JLabel getTitulo() {
-		return titulo;
-	}
-
-	public void setTitulo(JLabel titulo) {
-		this.titulo = titulo;
 	}
 
 	public JButton getEntrar() {

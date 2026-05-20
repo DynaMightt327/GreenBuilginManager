@@ -2,30 +2,32 @@ package co.edu.unbosque.view;
 
 public class ViewFacade {
 	
-	private VentanaPrincipal vp;
-	private VentanaIngresar vi;
+	private VentanaInicial vp;
+	private VentanaResidente vr;
 	private VentanaAdministrador va;
+	private VentanaEmpleado ve;
 	
 	public ViewFacade() {
-		vp = new VentanaPrincipal();
-		vi = new VentanaIngresar();
+		vp = new VentanaInicial();
+		vr = new VentanaResidente();
 		va = new VentanaAdministrador();
+		ve = new VentanaEmpleado();
 	}
 
-	public VentanaPrincipal getVp() {
+	public VentanaInicial getVp() {
 		return vp;
 	}
 
-	public void setVp(VentanaPrincipal vp) {
+	public void setVp(VentanaInicial vp) {
 		this.vp = vp;
 	}
 
-	public VentanaIngresar getVi() {
-		return vi;
+	public VentanaResidente getVr() {
+		return vr;
 	}
 
-	public void setVi(VentanaIngresar vi) {
-		this.vi = vi;
+	public void setVr(VentanaResidente vi) {
+		this.vr = vi;
 	}
 
 	public VentanaAdministrador getVa() {
@@ -34,6 +36,14 @@ public class ViewFacade {
 
 	public void setVa(VentanaAdministrador va) {
 		this.va = va;
+	}
+
+	public VentanaEmpleado getVe() {
+		return ve;
+	}
+
+	public void setVe(VentanaEmpleado ve) {
+		this.ve = ve;
 	}
 	
 }

@@ -7,9 +7,9 @@ import javax.swing.JPanel;
 
 public class PanelSeleccionIngreso extends JPanel {
 
-	private JButton iniciarSesion;
+	private JButton residente;
 	private JButton admin;
-	private JButton ayuda;
+	private JButton empleado;
 
 	public PanelSeleccionIngreso() {
 		inicializarComponentes();
@@ -17,21 +17,21 @@ public class PanelSeleccionIngreso extends JPanel {
 	}
 
 	public void inicializarComponentes() {
-		this.setBounds(320, 410, 450, 250);
+		this.setBounds(550, 0, 550, 720);
 		this.setLayout(null);
 		this.setBackground(Color.white);
 
-		iniciarSesion = new JButton("INICIAR SESIÓN");
-		iniciarSesion.setBounds(150, 30, 150, 50);
-		iniciarSesion.setBackground(Color.black);
-		iniciarSesion.setForeground(Color.white);
-		iniciarSesion.setBorderPainted(false);
-		iniciarSesion.setFocusPainted(false);
-		iniciarSesion.setVisible(true);
-		add(iniciarSesion);
+		residente = new JButton("RESIDENTE");
+		residente.setBounds(150, 230, 150, 50);
+		residente.setBackground(Color.black);
+		residente.setForeground(Color.white);
+		residente.setBorderPainted(false);
+		residente.setFocusPainted(false);
+		residente.setVisible(true);
+		add(residente);
 
-		admin = new JButton("SOY ADMIN");
-		admin.setBounds(150, 100, 150, 50);
+		admin = new JButton("ADMIN");
+		admin.setBounds(150, 300, 150, 50);
 		admin.setBackground(Color.black);
 		admin.setForeground(Color.white);
 		admin.setBorderPainted(false);
@@ -39,22 +39,22 @@ public class PanelSeleccionIngreso extends JPanel {
 		admin.setVisible(true);
 		add(admin);
 
-		ayuda = new JButton("AYUDA");
-		ayuda.setBounds(150, 170, 150, 50);
-		ayuda.setBackground(Color.black);
-		ayuda.setForeground(Color.white);
-		ayuda.setBorderPainted(false);
-		ayuda.setFocusPainted(false);
-		ayuda.setVisible(true);
-		add(ayuda);
+		empleado = new JButton("EMPLEADO");
+		empleado.setBounds(150, 370, 150, 50);
+		empleado.setBackground(Color.black);
+		empleado.setForeground(Color.white);
+		empleado.setBorderPainted(false);
+		empleado.setFocusPainted(false);
+		empleado.setVisible(true);
+		add(empleado);
 	}
 
-	public JButton getIniciarSesion() {
-		return iniciarSesion;
+	public JButton getResidente() {
+		return residente;
 	}
 
-	public void setIniciarSesion(JButton iniciarSesion) {
-		this.iniciarSesion = iniciarSesion;
+	public void setResidente(JButton residente) {
+		this.residente = residente;
 	}
 
 	public JButton getAdmin() {
@@ -65,12 +65,12 @@ public class PanelSeleccionIngreso extends JPanel {
 		this.admin = admin;
 	}
 
-	public JButton getAyuda() {
-		return ayuda;
+	public JButton getEmpleado() {
+		return empleado;
 	}
 
-	public void setAyuda(JButton ayuda) {
-		this.ayuda = ayuda;
+	public void setEmpleado(JButton empleado) {
+		this.empleado = empleado;
 	}
-
+	
 }

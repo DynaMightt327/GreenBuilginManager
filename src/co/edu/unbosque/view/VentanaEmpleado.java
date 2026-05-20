@@ -11,8 +11,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class VentanaIngresar extends JFrame {
-
+public class VentanaEmpleado extends JFrame{
+	
 	private JLabel titulo;
 	private JLabel lDocumento;
 	private JTextField tDocumento;
@@ -23,14 +23,14 @@ public class VentanaIngresar extends JFrame {
 	private JButton volver;
 	private JLabel fondo;
 	
-	public VentanaIngresar() {
+	public VentanaEmpleado() {
 		inicializarComponentes();
 		setVisible(false);
 	}
 
 	public void inicializarComponentes() {
 		// CONFIGURACION DE LA VENTANA
-		setTitle("GrennBuilding Manager");
+		setTitle("VENTANA EMPLEADO");
 		setBounds(230, 5, 1100, 720);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
@@ -54,7 +54,7 @@ public class VentanaIngresar extends JFrame {
 		fondo.add(titulo);
 
 		info = new JTextArea(
-				"No tienes tu cuenta¿? Contáctate con el administrador de tu \nconjunto para que realice tu registro");
+				"No tienes tu cuenta¿? Contáctate con el administrador de tu \nconjunto para que realice tu registro como empleado");
 		info.setBounds(600, 590, 450, 42);
 		info.setFont(new Font("Arial", Font.BOLD, 15));
 		info.setForeground(Color.black);
@@ -95,7 +95,6 @@ public class VentanaIngresar extends JFrame {
 		volver.setFocusPainted(false);
 		volver.setBorderPainted(false);
 		fondo.add(volver);
-
 	}
 
 	public JLabel getTitulo() {
@@ -146,6 +145,14 @@ public class VentanaIngresar extends JFrame {
 		this.iniciarSesion = iniciarSesion;
 	}
 
+	public JTextArea getInfo() {
+		return info;
+	}
+
+	public void setInfo(JTextArea info) {
+		this.info = info;
+	}
+
 	public JButton getVolver() {
 		return volver;
 	}
@@ -154,14 +161,13 @@ public class VentanaIngresar extends JFrame {
 		this.volver = volver;
 	}
 
-	public JTextArea getInfo() {
-		return info;
+	public JLabel getFondo() {
+		return fondo;
 	}
 
-	public void setInfo(JTextArea info) {
-		this.info = info;
+	public void setFondo(JLabel fondo) {
+		this.fondo = fondo;
 	}
-	
 	
 
 }
