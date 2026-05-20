@@ -22,6 +22,7 @@ public class VentanaEmpleado extends JFrame{
 	private JTextArea info;
 	private JButton volver;
 	private JLabel fondo;
+	private JButton registrarse;
 	
 	public VentanaEmpleado() {
 		inicializarComponentes();
@@ -95,6 +96,15 @@ public class VentanaEmpleado extends JFrame{
 		volver.setFocusPainted(false);
 		volver.setBorderPainted(false);
 		fondo.add(volver);
+		
+		registrarse = new JButton("crear mi cuenta");
+		registrarse.setBounds(720, 650, 140, 20);
+		registrarse.setBackground(Color.gray);
+		registrarse.setForeground(Color.black);
+		registrarse.setFont(new Font("Arial", Font.BOLD, 9));
+		registrarse.setFocusPainted(false);
+		registrarse.setBorderPainted(false);
+		fondo.add(registrarse);
 	}
 
 	public JLabel getTitulo() {
@@ -167,6 +177,14 @@ public class VentanaEmpleado extends JFrame{
 
 	public void setFondo(JLabel fondo) {
 		this.fondo = fondo;
+	}
+
+	public JButton getRegistrarse() {
+		return registrarse;
+	}
+
+	public void setRegistrarse(JButton registrarse) {
+		this.registrarse = registrarse;
 	}
 	
 

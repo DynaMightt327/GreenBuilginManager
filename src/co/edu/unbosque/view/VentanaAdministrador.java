@@ -16,6 +16,7 @@ public class VentanaAdministrador extends JFrame {
 	
 	private JPanel panelUno;
 	private PanelPrincipalAdministrador ppa;
+	private PanelRegistrarAdministrador pra;
 	
 	private JLabel titulo;
 	private JLabel lDocumento;
@@ -23,6 +24,7 @@ public class VentanaAdministrador extends JFrame {
 	private JLabel lcontrasenia;
 	private JPasswordField tContrasenia;
 	private JButton iniciarSesion;
+	private JButton registrarse;
 	private JTextArea info;
 	private JButton volver;
 	private JLabel fondo;
@@ -44,6 +46,10 @@ public class VentanaAdministrador extends JFrame {
 		ppa = new PanelPrincipalAdministrador();
 		ppa.setVisible(false);
 		add(ppa);
+		
+		pra = new PanelRegistrarAdministrador();
+		pra.setVisible(false);
+		add(pra);
 		
 		panelUno = new JPanel();
 		panelUno.setLayout(null);
@@ -110,6 +116,15 @@ public class VentanaAdministrador extends JFrame {
 		volver.setFocusPainted(false);
 		volver.setBorderPainted(false);
 		fondo.add(volver);
+		
+		registrarse = new JButton("crear mi cuenta");
+		registrarse.setBounds(720, 650, 140, 20);
+		registrarse.setBackground(Color.gray);
+		registrarse.setForeground(Color.black);
+		registrarse.setFont(new Font("Arial", Font.BOLD, 9));
+		registrarse.setFocusPainted(false);
+		registrarse.setBorderPainted(false);
+		fondo.add(registrarse);
 
 	}
 
@@ -184,6 +199,22 @@ public class VentanaAdministrador extends JFrame {
 
 	public void setPpa(PanelPrincipalAdministrador ppa) {
 		this.ppa = ppa;
+	}
+
+	public JButton getRegistrarse() {
+		return registrarse;
+	}
+
+	public void setRegistrarse(JButton registrarse) {
+		this.registrarse = registrarse;
+	}
+
+	public PanelRegistrarAdministrador getPra() {
+		return pra;
+	}
+
+	public void setPra(PanelRegistrarAdministrador pra) {
+		this.pra = pra;
 	}
 	
 }

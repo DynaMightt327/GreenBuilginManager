@@ -37,8 +37,8 @@ public class Controller implements ActionListener {
 		vf.getVa().getIniciarSesion().addActionListener(this);
 		vf.getVa().getIniciarSesion().setActionCommand("boton_ingresar_admin");
 		
-		vf.getVa().getPpa().getRegistrar().addActionListener(this);
-		vf.getVa().getPpa().getRegistrar().setActionCommand("boton_registrar_persona");
+		vf.getVa().getRegistrarse().addActionListener(this);
+		vf.getVa().getRegistrarse().setActionCommand("boton_registrarse_admin");
 		
 		// ===VENTANA EMPLEADOS===
 		vf.getVe().getIniciarSesion().addActionListener(this);
@@ -103,8 +103,9 @@ public class Controller implements ActionListener {
 			vf.getVa().getPpa().setVisible(true);
 			break;
 		}
-		case "boton_registrar_persona":{
-			vf.getVa().getPpa().getPr().setVisible(true);
+		case "boton_registrarse_admin":{
+			vf.getVa().getPanelUno().setVisible(false);
+			vf.getVa().getPra().setVisible(true);
 			break;
 		}
 		case "boton_volver_iniciar_va":{

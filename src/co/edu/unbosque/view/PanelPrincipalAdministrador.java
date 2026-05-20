@@ -9,14 +9,12 @@ import javax.swing.JPanel;
 
 public class PanelPrincipalAdministrador extends JPanel{
 	
-	private PanelRegistrar pr;
 	
 	private JPanel panelDerecho;
 	private JPanel panelIzquierdo;
 	
 	private JLabel menu;
 	
-	private JButton registrar;
 	private JButton volver;
 	
 	public PanelPrincipalAdministrador() {
@@ -28,10 +26,6 @@ public class PanelPrincipalAdministrador extends JPanel{
 		this.setBounds(0, 0, 1100, 720);
 		this.setLayout(null);
 		this.setBackground(Color.white);
-		
-		pr = new PanelRegistrar();
-		pr.setVisible(false);
-		add(pr);
 		
 		panelDerecho = new JPanel();
 		panelDerecho.setLayout(null);
@@ -51,15 +45,6 @@ public class PanelPrincipalAdministrador extends JPanel{
 		menu.setForeground(Color.black);
 		menu.setBackground(Color.white);
 		panelIzquierdo.add(menu);
-		
-		registrar = new JButton("REGISTRAR");
-		registrar.setBounds(10, 200, 90, 40);
-		registrar.setBackground(Color.white);
-		registrar.setForeground(Color.black);
-		registrar.setFont(new Font("Arial", Font.BOLD, 9));
-		registrar.setFocusPainted(false);
-		registrar.setBorderPainted(false);
-		panelIzquierdo.add(registrar);
 		
 		volver = new JButton("VOLVER");
 		volver.setBounds(10, 650, 90, 20);
@@ -94,28 +79,12 @@ public class PanelPrincipalAdministrador extends JPanel{
 		this.volver = volver;
 	}
 
-	public PanelRegistrar getPr() {
-		return pr;
-	}
-
-	public void setPr(PanelRegistrar pr) {
-		this.pr = pr;
-	}
-
 	public JLabel getMenu() {
 		return menu;
 	}
 
 	public void setMenu(JLabel menu) {
 		this.menu = menu;
-	}
-
-	public JButton getRegistrar() {
-		return registrar;
-	}
-
-	public void setRegistrar(JButton registrar) {
-		this.registrar = registrar;
 	}
 
 }
