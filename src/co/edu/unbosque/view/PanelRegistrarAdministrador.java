@@ -11,6 +11,15 @@ import javax.swing.JTextField;
 
 public class PanelRegistrarAdministrador extends JPanel {
 
+	private JPanel panelSup;
+	private JLabel name;
+	
+	private JLabel titulo;
+	private JLabel fotoPreview;
+	private JButton volver;
+	private JButton guardar;
+	private JLabel info;
+	
 	private JLabel nombre;
 	private JLabel apellido;
 	private JLabel edad;
@@ -164,4 +173,270 @@ public class PanelRegistrarAdministrador extends JPanel {
 		tcontrasenia.setBounds(250, 45, 164, 20);
 		add(tcontrasenia);
 	}
+
+	public JLabel getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(JLabel titulo) {
+		this.titulo = titulo;
+	}
+
+	public JLabel getFotoPreview() {
+		return fotoPreview;
+	}
+
+	public void setFotoPreview(JLabel fotoPreview) {
+		this.fotoPreview = fotoPreview;
+	}
+
+	public JButton getVolver() {
+		return volver;
+	}
+
+	public void setVolver(JButton volver) {
+		this.volver = volver;
+	}
+
+	public JButton getGuardar() {
+		return guardar;
+	}
+
+	public void setGuardar(JButton guardar) {
+		this.guardar = guardar;
+	}
+
+	public JLabel getInfo() {
+		return info;
+	}
+
+	public void setInfo(JLabel info) {
+		this.info = info;
+	}
+
+	public JLabel getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(JLabel nombre) {
+		this.nombre = nombre;
+	}
+
+	public JLabel getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(JLabel apellido) {
+		this.apellido = apellido;
+	}
+
+	public JLabel getEdad() {
+		return edad;
+	}
+
+	public void setEdad(JLabel edad) {
+		this.edad = edad;
+	}
+
+	public JLabel getGenero() {
+		return genero;
+	}
+
+	public void setGenero(JLabel genero) {
+		this.genero = genero;
+	}
+
+	public JLabel getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(JLabel correo) {
+		this.correo = correo;
+	}
+
+	public JLabel getId() {
+		return id;
+	}
+
+	public void setId(JLabel id) {
+		this.id = id;
+	}
+
+	public JLabel getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(JLabel telefono) {
+		this.telefono = telefono;
+	}
+
+	public JLabel getRutaFoto() {
+		return rutaFoto;
+	}
+
+	public void setRutaFoto(JLabel rutaFoto) {
+		this.rutaFoto = rutaFoto;
+	}
+
+	public JLabel getEstado() {
+		return estado;
+	}
+
+	public void setEstado(JLabel estado) {
+		this.estado = estado;
+	}
+
+	public JLabel getCargo() {
+		return cargo;
+	}
+
+	public void setCargo(JLabel cargo) {
+		this.cargo = cargo;
+	}
+
+	public JLabel getFechaIncio() {
+		return fechaIncio;
+	}
+
+	public void setFechaIncio(JLabel fechaIncio) {
+		this.fechaIncio = fechaIncio;
+	}
+
+	public JLabel getNit() {
+		return nit;
+	}
+
+	public void setNit(JLabel nit) {
+		this.nit = nit;
+	}
+
+	public JLabel getNivelAcceso() {
+		return nivelAcceso;
+	}
+
+	public void setNivelAcceso(JLabel nivelAcceso) {
+		this.nivelAcceso = nivelAcceso;
+	}
+
+	public JLabel getContrasenia() {
+		return contrasenia;
+	}
+
+	public void setContrasenia(JLabel contrasenia) {
+		this.contrasenia = contrasenia;
+	}
+
+	public JTextField getTnombre() {
+		return tnombre;
+	}
+
+	public void setTnombre(JTextField tnombre) {
+		this.tnombre = tnombre;
+	}
+
+	public JTextField getTapellido() {
+		return tapellido;
+	}
+
+	public void setTapellido(JTextField tapellido) {
+		this.tapellido = tapellido;
+	}
+
+	public JTextField getTedad() {
+		return tedad;
+	}
+
+	public void setTedad(JTextField tedad) {
+		this.tedad = tedad;
+	}
+
+	public JComboBox<String> getTgenero() {
+		return tgenero;
+	}
+
+	public void setTgenero(JComboBox<String> tgenero) {
+		this.tgenero = tgenero;
+	}
+
+	public JTextField getTcorreo() {
+		return tcorreo;
+	}
+
+	public void setTcorreo(JTextField tcorreo) {
+		this.tcorreo = tcorreo;
+	}
+
+	public JTextField getTid() {
+		return tid;
+	}
+
+	public void setTid(JTextField tid) {
+		this.tid = tid;
+	}
+
+	public JTextField getTtelefono() {
+		return ttelefono;
+	}
+
+	public void setTtelefono(JTextField ttelefono) {
+		this.ttelefono = ttelefono;
+	}
+
+	public JButton getTrutaFoto() {
+		return trutaFoto;
+	}
+
+	public void setTrutaFoto(JButton trutaFoto) {
+		this.trutaFoto = trutaFoto;
+	}
+
+	public JComboBox<String> getTestado() {
+		return testado;
+	}
+
+	public void setTestado(JComboBox<String> testado) {
+		this.testado = testado;
+	}
+
+	public JComboBox<String> getTcargo() {
+		return tcargo;
+	}
+
+	public void setTcargo(JComboBox<String> tcargo) {
+		this.tcargo = tcargo;
+	}
+
+	public JTextField getTfechaIncio() {
+		return tfechaIncio;
+	}
+
+	public void setTfechaIncio(JTextField tfechaIncio) {
+		this.tfechaIncio = tfechaIncio;
+	}
+
+	public JTextField getTnit() {
+		return tnit;
+	}
+
+	public void setTnit(JTextField tnit) {
+		this.tnit = tnit;
+	}
+
+	public JComboBox<String> getTnivelAcceso() {
+		return tnivelAcceso;
+	}
+
+	public void setTnivelAcceso(JComboBox<String> tnivelAcceso) {
+		this.tnivelAcceso = tnivelAcceso;
+	}
+
+	public JPasswordField getTcontrasenia() {
+		return tcontrasenia;
+	}
+
+	public void setTcontrasenia(JPasswordField tcontrasenia) {
+		this.tcontrasenia = tcontrasenia;
+	}
+	
+	
 }
