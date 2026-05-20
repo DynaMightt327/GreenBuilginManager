@@ -1,5 +1,5 @@
 package co.edu.unbosque.model;
 
-public class Torre {
+public class ParqueInfantil {
 
 }
