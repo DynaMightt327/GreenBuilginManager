@@ -149,12 +149,12 @@ public class PanelRegistrarEmpleado extends JPanel {
 		add(rutaFoto);
 
 		fotoPreview = new JLabel();
-		fotoPreview.setBounds(730, 45, 200, 25);
+		fotoPreview.setBounds(730, 45, 100, 100);
 		fotoPreview.setBorder(BorderFactory.createLineBorder(Color.GRAY));
 		add(fotoPreview);
 
 		trutaFoto = new JButton("SUBIR FOTO");
-		trutaFoto.setBounds(730, 110, 200, 25);
+		trutaFoto.setBounds(730, 170, 150, 30);
 		trutaFoto.setBackground(Color.decode("#F9CFCE"));
 		trutaFoto.setFocusPainted(false);
 		trutaFoto.setBorderPainted(false);
