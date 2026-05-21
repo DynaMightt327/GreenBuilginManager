@@ -1,28 +1,28 @@
 package co.edu.unbosque.model;
 
-public class Aviso {
+public class ReporteDTO {
 	
-	private String tipoAviso;
+	private String nombre;
 	private String contenido;
 	private String fecha;
 	
-	public Aviso() {
+	public ReporteDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Aviso(String tipoAviso, String contenido, String fecha) {
+	public ReporteDTO(String nombre, String contenido, String fecha) {
 		super();
-		this.tipoAviso = tipoAviso;
+		this.nombre = nombre;
 		this.contenido = contenido;
 		this.fecha = fecha;
 	}
 
-	public String getTipoAviso() {
-		return tipoAviso;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setTipoAviso(String tipoAviso) {
-		this.tipoAviso = tipoAviso;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public String getContenido() {
@@ -43,8 +43,11 @@ public class Aviso {
 
 	@Override
 	public String toString() {
-		return "Aviso [tipoAviso=" + tipoAviso + ", contenido=" + contenido + ", fecha=" + fecha + "]";
+		return "Reporte [nombre=" + nombre + ", contenido=" + contenido + ", fecha=" + fecha + "]";
 	}
+
+	
+	
 	
 	
 

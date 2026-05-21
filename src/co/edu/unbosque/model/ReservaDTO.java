@@ -2,7 +2,7 @@ package co.edu.unbosque.model;
 
 import java.time.LocalDate;
 
-public class Reserva {
+public class ReservaDTO {
 	
 	private String nombreCompleto;
 	private int edad;
@@ -14,11 +14,11 @@ public class Reserva {
 	private String horaFinal;
 	private int costo;
 	
-	public Reserva() {
+	public ReservaDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Reserva(String nombreCompleto, int edad, long id, long telefono, String correo, LocalDate fechaReserva,
+	public ReservaDTO(String nombreCompleto, int edad, long id, long telefono, String correo, LocalDate fechaReserva,
 			String horaInicio, String horaFinal, int costo) {
 		super();
 		this.nombreCompleto = nombreCompleto;

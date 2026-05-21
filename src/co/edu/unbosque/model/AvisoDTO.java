@@ -1,16 +1,16 @@
 package co.edu.unbosque.model;
 
-public class Aviso {
+public class AvisoDTO {
 	
 	private String tipoAviso;
 	private String contenido;
 	private String fecha;
 	
-	public Aviso() {
+	public AvisoDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Aviso(String tipoAviso, String contenido, String fecha) {
+	public AvisoDTO(String tipoAviso, String contenido, String fecha) {
 		super();
 		this.tipoAviso = tipoAviso;
 		this.contenido = contenido;
