@@ -6,12 +6,14 @@ public class ViewFacade {
 	private VentanaAdministrador va;
 	private VentanaResidente vr;
 	private VentanaEmpleado ve;
+	private VentanaVisitante vv;
 	
 	public ViewFacade() {
 		vi = new VentanaInicial();
 		va = new VentanaAdministrador();
 		vr = new VentanaResidente();
 		ve = new VentanaEmpleado();
+		vv = new VentanaVisitante();
 	}
 
 	public VentanaInicial getVi() {
@@ -44,6 +46,14 @@ public class ViewFacade {
 
 	public void setVe(VentanaEmpleado ve) {
 		this.ve = ve;
+	}
+
+	public VentanaVisitante getVv() {
+		return vv;
+	}
+
+	public void setVv(VentanaVisitante vv) {
+		this.vv = vv;
 	}
 
 }

@@ -18,28 +18,40 @@ public class Controller implements ActionListener {
 		// ===========PRINCIPAL==============
 		vf.getVi().getAdmin().addActionListener(this);
 		vf.getVi().getAdmin().setActionCommand("iniciar_admin");
-		
+
 		vf.getVi().getResidente().addActionListener(this);
 		vf.getVi().getResidente().setActionCommand("iniciar_residente");
-		
+
 		vf.getVi().getEmpleado().addActionListener(this);
 		vf.getVi().getEmpleado().setActionCommand("iniciar_empleado");
-		
+
+		vf.getVi().getVisitante().addActionListener(this);
+		vf.getVi().getVisitante().setActionCommand("iniciar_visitante");
+
 		// ===========ADMINISTRADOR==============
 		vf.getVa().getVolver().addActionListener(this);
 		vf.getVa().getVolver().setActionCommand("volver_en_admin");
 		
+		vf.getVa().getRegistrar().addActionListener(this);
+		vf.getVa().getRegistrar().setActionCommand("registrar_admin");
+		
+		vf.getVa().getPra().getVolver().addActionListener(this);
+		vf.getVa().getPra().getVolver().setActionCommand("volver_registrar_admin");
+
 		// ===========RESIDENTE==============
 		vf.getVr().getVolver().addActionListener(this);
 		vf.getVr().getVolver().setActionCommand("volver_en_residente");
-		
+
 		// ===========EMPLEADO==============
 		vf.getVe().getVolver().addActionListener(this);
 		vf.getVe().getVolver().setActionCommand("volver_en_empleado");
-	
+
+		// ===========VISITANTE==============
+		vf.getVv().getVolver().addActionListener(this);
+		vf.getVv().getVolver().setActionCommand("volver_en_visitante");
+
 	}
 
-	
 	public void iniciar() {
 		vf.getVi().setVisible(true);
 	}
@@ -68,21 +80,31 @@ public class Controller implements ActionListener {
 			vf.getVi().setVisible(true);
 			break;
 		}
-		case "iniciar_empleado": {
+		case "iniciar_visitante": {
 			vf.getVi().setVisible(false);
-			vf.getVe().setVisible(true);
+			vf.getVv().setVisible(true);
 			break;
 		}
-		case "volver_en_empleado": {
-			vf.getVe().setVisible(false);
+		case "volver_en_visitante": {
+			vf.getVv().setVisible(false);
 			vf.getVi().setVisible(true);
 			break;
 		}
-		default:{
+		case "registrar_admin":{
+			vf.getVa().getPanelBotones().setVisible(false);
+			vf.getVa().getPra().setVisible(true);
+			break;
+		}
+		case "volver_registrar_admin":{
+			vf.getVa().getPanelBotones().setVisible(true);
+			vf.getVa().getPra().setVisible(false);
+			break;
+		}
+		default: {
 			break;
 		}
 		}
-		
+
 	}
 
 }
