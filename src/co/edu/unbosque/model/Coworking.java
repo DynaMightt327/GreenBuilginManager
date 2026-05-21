@@ -17,17 +17,16 @@ public class Coworking extends ZonaComun {
 		this.tieneAccesoAInternet = tieneAccesoAInternet;
 	}
 
-	public Coworking(String estado, int medidaCuadrada, boolean estaDisponible, int capacidadMaxima, String responsable,
+	public Coworking(String estado, int medidaCuadrada, boolean estaDisponible, int capacidadMaxima,
 			int numeroDePuesto, boolean tieneComputadores, boolean tieneAccesoAInternet) {
-		super(estado, medidaCuadrada, estaDisponible, capacidadMaxima, responsable);
+		super(estado, medidaCuadrada, estaDisponible, capacidadMaxima);
 		this.numeroDePuesto = numeroDePuesto;
 		this.tieneComputadores = tieneComputadores;
 		this.tieneAccesoAInternet = tieneAccesoAInternet;
 	}
 
-	public Coworking(String estado, int medidaCuadrada, boolean estaDisponible, int capacidadMaxima,
-			String responsable) {
-		super(estado, medidaCuadrada, estaDisponible, capacidadMaxima, responsable);
+	public Coworking(String estado, int medidaCuadrada, boolean estaDisponible, int capacidadMaxima) {
+		super(estado, medidaCuadrada, estaDisponible, capacidadMaxima);
 		// TODO Auto-generated constructor stub
 	}
 

@@ -5,6 +5,7 @@ import java.time.LocalDate;
 public class Reserva {
 	
 	private String nombreCompleto;
+	private String tipoZona;
 	private int edad;
 	private long id;
 	private long telefono;
@@ -18,10 +19,11 @@ public class Reserva {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Reserva(String nombreCompleto, int edad, long id, long telefono, String correo, LocalDate fechaReserva,
-			String horaInicio, String horaFinal, int costo) {
+	public Reserva(String nombreCompleto, String tipoZona, int edad, long id, long telefono, String correo,
+			LocalDate fechaReserva, String horaInicio, String horaFinal, int costo) {
 		super();
 		this.nombreCompleto = nombreCompleto;
+		this.tipoZona = tipoZona;
 		this.edad = edad;
 		this.id = id;
 		this.telefono = telefono;
@@ -38,6 +40,14 @@ public class Reserva {
 
 	public void setNombreCompleto(String nombreCompleto) {
 		this.nombreCompleto = nombreCompleto;
+	}
+
+	public String getTipoZona() {
+		return tipoZona;
+	}
+
+	public void setTipoZona(String tipoZona) {
+		this.tipoZona = tipoZona;
 	}
 
 	public int getEdad() {
@@ -106,10 +116,12 @@ public class Reserva {
 
 	@Override
 	public String toString() {
-		return "Reserva [nombreCompleto=" + nombreCompleto + ", edad=" + edad + ", id=" + id + ", telefono=" + telefono
-				+ ", correo=" + correo + ", fechaReserva=" + fechaReserva + ", horaInicio=" + horaInicio
-				+ ", horaFinal=" + horaFinal + ", costo=" + costo + "]";
+		return "Reserva [nombreCompleto=" + nombreCompleto + ", tipoZona=" + tipoZona + ", edad=" + edad + ", id=" + id
+				+ ", telefono=" + telefono + ", correo=" + correo + ", fechaReserva=" + fechaReserva + ", horaInicio="
+				+ horaInicio + ", horaFinal=" + horaFinal + ", costo=" + costo + "]";
 	}
+
+	
 	
 	
 
