@@ -1,21 +1,26 @@
 package co.edu.unbosque.model.persistence;
 
 import java.util.ArrayList;
-import co.edu.unbosque.model.Reserva;
 
-public class ReservaDAO implements DAO<Reserva> {
+import co.edu.unbosque.model.Reserva;
+import co.edu.unbosque.model.ReservaDTO;
+
+public class ReservaDAO implements DAO<Reserva, ReservaDTO> {
 
 	private ArrayList<Reserva> listaReservas;
+	private final String URL_ARCHIVO_TEXTO = "reservas.csv";
 	private final String URL_ARCHIVO_SERIALIZADO = "reservas.dat";
+	private DataMapper dm;
 
 	public ReservaDAO() {
 		listaReservas = new ArrayList<>();
+		dm = new DataMapper();
 		leerSerializado();
 	}
 
 	@Override
-	public void crear(Reserva nuevoDato) {
-		listaReservas.add(nuevoDato);
+	public void crear(ReservaDTO nuevoDato) {
+		listaReservas.add(DataMapper.convertirReservaDTOAReserva(nuevoDato));
 		escribirSerializado();
 	}
 
@@ -31,11 +36,11 @@ public class ReservaDAO implements DAO<Reserva> {
 	}
 
 	@Override
-	public boolean actualizar(int index, Reserva datoActualziado) {
+	public boolean actualizar(int index, ReservaDTO datoActualizado) {
 		if (index < 0 || index >= listaReservas.size()) {
 			return false;
 		} else {
-			listaReservas.set(index, datoActualziado);
+			listaReservas.set(index, DataMapper.convertirReservaDTOAReserva(datoActualizado));
 			escribirSerializado();
 			return true;
 		}
@@ -55,12 +60,21 @@ public class ReservaDAO implements DAO<Reserva> {
 
 	@Override
 	public String mostrar(int index) {
-		return listaReservas.get(index).toString();
+		return DataMapper.convertirReservaAReservaDTO(listaReservas.get(index)).toString();
 	}
 
 	@Override
-	public ArrayList<Reserva> mostrarTodo() {
-		return listaReservas;
+	public ArrayList<ReservaDTO> mostrarTodo() {
+		return DataMapper.convertirListaReservaAListaReservaDTO(listaReservas);
+	}
+
+	@Override
+	public void escribirArchivo() {
+		StringBuilder sb = new StringBuilder();
+		for (Reserva reserva : listaReservas) {
+			sb.append(reserva.toString() + "\n");
+		}
+		FileHandler.crearYEscribirArchivo(URL_ARCHIVO_TEXTO, sb.toString());
 	}
 
 	public void escribirSerializado() {
@@ -82,5 +96,13 @@ public class ReservaDAO implements DAO<Reserva> {
 
 	public void setListaReservas(ArrayList<Reserva> listaReservas) {
 		this.listaReservas = listaReservas;
+	}
+
+	public DataMapper getDm() {
+		return dm;
+	}
+
+	public void setDm(DataMapper dm) {
+		this.dm = dm;
 	}
 }

@@ -1,21 +1,26 @@
 package co.edu.unbosque.model.persistence;
 
 import java.util.ArrayList;
-import co.edu.unbosque.model.Vigilante;
 
-public class VigilanteDAO implements DAO<Vigilante> {
+import co.edu.unbosque.model.Vigilante;
+import co.edu.unbosque.model.VigilanteDTO;
+
+public class VigilanteDAO implements DAO<Vigilante, VigilanteDTO> {
 
 	private ArrayList<Vigilante> listaVigilantes;
+	private final String URL_ARCHIVO_TEXTO = "vigilantes.csv";
 	private final String URL_ARCHIVO_SERIALIZADO = "vigilantes.dat";
+	private DataMapper dm;
 
 	public VigilanteDAO() {
 		listaVigilantes = new ArrayList<>();
+		dm = new DataMapper();
 		leerSerializado();
 	}
 
 	@Override
-	public void crear(Vigilante nuevoDato) {
-		listaVigilantes.add(nuevoDato);
+	public void crear(VigilanteDTO nuevoDato) {
+		listaVigilantes.add(DataMapper.convertirVigilanteDTOAVigilante(nuevoDato));
 		escribirSerializado();
 	}
 
@@ -31,11 +36,11 @@ public class VigilanteDAO implements DAO<Vigilante> {
 	}
 
 	@Override
-	public boolean actualizar(int index, Vigilante datoActualziado) {
+	public boolean actualizar(int index, VigilanteDTO datoActualizado) {
 		if (index < 0 || index >= listaVigilantes.size()) {
 			return false;
 		} else {
-			listaVigilantes.set(index, datoActualziado);
+			listaVigilantes.set(index, DataMapper.convertirVigilanteDTOAVigilante(datoActualizado));
 			escribirSerializado();
 			return true;
 		}
@@ -55,12 +60,21 @@ public class VigilanteDAO implements DAO<Vigilante> {
 
 	@Override
 	public String mostrar(int index) {
-		return listaVigilantes.get(index).toString();
+		return DataMapper.convertirVigilanteAVigilanteDTO(listaVigilantes.get(index)).toString();
 	}
 
 	@Override
-	public ArrayList<Vigilante> mostrarTodo() {
-		return listaVigilantes;
+	public ArrayList<VigilanteDTO> mostrarTodo() {
+		return DataMapper.convertirListaVigilanteAListaVigilanteDTO(listaVigilantes);
+	}
+
+	@Override
+	public void escribirArchivo() {
+		StringBuilder sb = new StringBuilder();
+		for (Vigilante vigilante : listaVigilantes) {
+			sb.append(vigilante.toString() + "\n");
+		}
+		FileHandler.crearYEscribirArchivo(URL_ARCHIVO_TEXTO, sb.toString());
 	}
 
 	public void escribirSerializado() {
@@ -82,5 +96,13 @@ public class VigilanteDAO implements DAO<Vigilante> {
 
 	public void setListaVigilantes(ArrayList<Vigilante> listaVigilantes) {
 		this.listaVigilantes = listaVigilantes;
+	}
+
+	public DataMapper getDm() {
+		return dm;
+	}
+
+	public void setDm(DataMapper dm) {
+		this.dm = dm;
 	}
 }

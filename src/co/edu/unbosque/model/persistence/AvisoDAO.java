@@ -1,21 +1,26 @@
 package co.edu.unbosque.model.persistence;
 
 import java.util.ArrayList;
-import co.edu.unbosque.model.Aviso;
 
-public class AvisoDAO implements DAO<Aviso> {
+import co.edu.unbosque.model.Aviso;
+import co.edu.unbosque.model.AvisoDTO;
+
+public class AvisoDAO implements DAO<Aviso, AvisoDTO> {
 
 	private ArrayList<Aviso> listaAvisos;
+	private final String URL_ARCHIVO_TEXTO = "avisos.csv";
 	private final String URL_ARCHIVO_SERIALIZADO = "avisos.dat";
+	private DataMapper dm;
 
 	public AvisoDAO() {
 		listaAvisos = new ArrayList<>();
+		dm = new DataMapper();
 		leerSerializado();
 	}
 
 	@Override
-	public void crear(Aviso nuevoDato) {
-		listaAvisos.add(nuevoDato);
+	public void crear(AvisoDTO nuevoDato) {
+		listaAvisos.add(DataMapper.convertirAvisoDTOAAviso(nuevoDato));
 		escribirSerializado();
 	}
 
@@ -31,11 +36,11 @@ public class AvisoDAO implements DAO<Aviso> {
 	}
 
 	@Override
-	public boolean actualizar(int index, Aviso datoActualziado) {
+	public boolean actualizar(int index, AvisoDTO datoActualizado) {
 		if (index < 0 || index >= listaAvisos.size()) {
 			return false;
 		} else {
-			listaAvisos.set(index, datoActualziado);
+			listaAvisos.set(index, DataMapper.convertirAvisoDTOAAviso(datoActualizado));
 			escribirSerializado();
 			return true;
 		}
@@ -55,12 +60,21 @@ public class AvisoDAO implements DAO<Aviso> {
 
 	@Override
 	public String mostrar(int index) {
-		return listaAvisos.get(index).toString();
+		return DataMapper.convertirAvisoAAvisoDTO(listaAvisos.get(index)).toString();
 	}
 
 	@Override
-	public ArrayList<Aviso> mostrarTodo() {
-		return listaAvisos;
+	public ArrayList<AvisoDTO> mostrarTodo() {
+		return DataMapper.convertirListaAvisoAListaAvisoDTO(listaAvisos);
+	}
+
+	@Override
+	public void escribirArchivo() {
+		StringBuilder sb = new StringBuilder();
+		for (Aviso aviso : listaAvisos) {
+			sb.append(aviso.toString() + "\n");
+		}
+		FileHandler.crearYEscribirArchivo(URL_ARCHIVO_TEXTO, sb.toString());
 	}
 
 	public void escribirSerializado() {
@@ -82,5 +96,13 @@ public class AvisoDAO implements DAO<Aviso> {
 
 	public void setListaAvisos(ArrayList<Aviso> listaAvisos) {
 		this.listaAvisos = listaAvisos;
+	}
+
+	public DataMapper getDm() {
+		return dm;
+	}
+
+	public void setDm(DataMapper dm) {
+		this.dm = dm;
 	}
 }

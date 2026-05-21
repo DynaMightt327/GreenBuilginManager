@@ -1,21 +1,26 @@
 package co.edu.unbosque.model.persistence;
 
 import java.util.ArrayList;
-import co.edu.unbosque.model.Administrador;
 
-public class AdministradorDAO implements DAO<Administrador> {
+import co.edu.unbosque.model.Administrador;
+import co.edu.unbosque.model.AdministradorDTO;
+
+public class AdministradorDAO implements DAO<Administrador, AdministradorDTO> {
 
 	private ArrayList<Administrador> listaAdministradores;
+	private final String URL_ARCHIVO_TEXTO = "administradores.csv";
 	private final String URL_ARCHIVO_SERIALIZADO = "administradores.dat";
+	private DataMapper dm;
 
 	public AdministradorDAO() {
 		listaAdministradores = new ArrayList<>();
+		dm = new DataMapper();
 		leerSerializado();
 	}
 
 	@Override
-	public void crear(Administrador nuevoDato) {
-		listaAdministradores.add(nuevoDato);
+	public void crear(AdministradorDTO nuevoDato) {
+		listaAdministradores.add(DataMapper.convertirAdministradorDTOAAdministrador(nuevoDato));
 		escribirSerializado();
 	}
 
@@ -31,11 +36,11 @@ public class AdministradorDAO implements DAO<Administrador> {
 	}
 
 	@Override
-	public boolean actualizar(int index, Administrador datoActualziado) {
+	public boolean actualizar(int index, AdministradorDTO datoActualizado) {
 		if (index < 0 || index >= listaAdministradores.size()) {
 			return false;
 		} else {
-			listaAdministradores.set(index, datoActualziado);
+			listaAdministradores.set(index, DataMapper.convertirAdministradorDTOAAdministrador(datoActualizado));
 			escribirSerializado();
 			return true;
 		}
@@ -55,12 +60,21 @@ public class AdministradorDAO implements DAO<Administrador> {
 
 	@Override
 	public String mostrar(int index) {
-		return listaAdministradores.get(index).toString();
+		return DataMapper.convertirAdministradorAAdministradorDTO(listaAdministradores.get(index)).toString();
 	}
 
 	@Override
-	public ArrayList<Administrador> mostrarTodo() {
-		return listaAdministradores;
+	public ArrayList<AdministradorDTO> mostrarTodo() {
+		return DataMapper.convertirListaAdministradorAListaAdministradorDTO(listaAdministradores);
+	}
+
+	@Override
+	public void escribirArchivo() {
+		StringBuilder sb = new StringBuilder();
+		for (Administrador administrador : listaAdministradores) {
+			sb.append(administrador.toString() + "\n");
+		}
+		FileHandler.crearYEscribirArchivo(URL_ARCHIVO_TEXTO, sb.toString());
 	}
 
 	public void escribirSerializado() {
@@ -82,5 +96,13 @@ public class AdministradorDAO implements DAO<Administrador> {
 
 	public void setListaAdministradores(ArrayList<Administrador> listaAdministradores) {
 		this.listaAdministradores = listaAdministradores;
+	}
+
+	public DataMapper getDm() {
+		return dm;
+	}
+
+	public void setDm(DataMapper dm) {
+		this.dm = dm;
 	}
 }

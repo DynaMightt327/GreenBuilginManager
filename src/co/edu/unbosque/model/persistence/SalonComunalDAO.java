@@ -1,21 +1,26 @@
 package co.edu.unbosque.model.persistence;
 
 import java.util.ArrayList;
-import co.edu.unbosque.model.SalonComunal;
 
-public class SalonComunalDAO implements DAO<SalonComunal> {
+import co.edu.unbosque.model.SalonComunal;
+import co.edu.unbosque.model.SalonComunalDTO;
+
+public class SalonComunalDAO implements DAO<SalonComunal, SalonComunalDTO> {
 
 	private ArrayList<SalonComunal> listaSalonesComunales;
+	private final String URL_ARCHIVO_TEXTO = "salonesComunales.csv";
 	private final String URL_ARCHIVO_SERIALIZADO = "salonesComunales.dat";
+	private DataMapper dm;
 
 	public SalonComunalDAO() {
 		listaSalonesComunales = new ArrayList<>();
+		dm = new DataMapper();
 		leerSerializado();
 	}
 
 	@Override
-	public void crear(SalonComunal nuevoDato) {
-		listaSalonesComunales.add(nuevoDato);
+	public void crear(SalonComunalDTO nuevoDato) {
+		listaSalonesComunales.add(DataMapper.convertirSalonComunalDTOASalonComunal(nuevoDato));
 		escribirSerializado();
 	}
 
@@ -31,11 +36,11 @@ public class SalonComunalDAO implements DAO<SalonComunal> {
 	}
 
 	@Override
-	public boolean actualizar(int index, SalonComunal datoActualziado) {
+	public boolean actualizar(int index, SalonComunalDTO datoActualizado) {
 		if (index < 0 || index >= listaSalonesComunales.size()) {
 			return false;
 		} else {
-			listaSalonesComunales.set(index, datoActualziado);
+			listaSalonesComunales.set(index, DataMapper.convertirSalonComunalDTOASalonComunal(datoActualizado));
 			escribirSerializado();
 			return true;
 		}
@@ -55,12 +60,21 @@ public class SalonComunalDAO implements DAO<SalonComunal> {
 
 	@Override
 	public String mostrar(int index) {
-		return listaSalonesComunales.get(index).toString();
+		return DataMapper.convertirSalonComunalASalonComunalDTO(listaSalonesComunales.get(index)).toString();
 	}
 
 	@Override
-	public ArrayList<SalonComunal> mostrarTodo() {
-		return listaSalonesComunales;
+	public ArrayList<SalonComunalDTO> mostrarTodo() {
+		return DataMapper.convertirListaSalonComunalAListaSalonComunalDTO(listaSalonesComunales);
+	}
+
+	@Override
+	public void escribirArchivo() {
+		StringBuilder sb = new StringBuilder();
+		for (SalonComunal salonComunal : listaSalonesComunales) {
+			sb.append(salonComunal.toString() + "\n");
+		}
+		FileHandler.crearYEscribirArchivo(URL_ARCHIVO_TEXTO, sb.toString());
 	}
 
 	public void escribirSerializado() {
@@ -82,5 +96,13 @@ public class SalonComunalDAO implements DAO<SalonComunal> {
 
 	public void setListaSalonesComunales(ArrayList<SalonComunal> listaSalonesComunales) {
 		this.listaSalonesComunales = listaSalonesComunales;
+	}
+
+	public DataMapper getDm() {
+		return dm;
+	}
+
+	public void setDm(DataMapper dm) {
+		this.dm = dm;
 	}
 }

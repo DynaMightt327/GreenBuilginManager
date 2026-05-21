@@ -1,21 +1,26 @@
 package co.edu.unbosque.model.persistence;
 
 import java.util.ArrayList;
-import co.edu.unbosque.model.Visitante;
 
-public class VisitanteDAO implements DAO<Visitante> {
+import co.edu.unbosque.model.Visitante;
+import co.edu.unbosque.model.VisitanteDTO;
+
+public class VisitanteDAO implements DAO<Visitante, VisitanteDTO> {
 
 	private ArrayList<Visitante> listaVisitantes;
+	private final String URL_ARCHIVO_TEXTO = "visitantes.csv";
 	private final String URL_ARCHIVO_SERIALIZADO = "visitantes.dat";
+	private DataMapper dm;
 
 	public VisitanteDAO() {
 		listaVisitantes = new ArrayList<>();
+		dm = new DataMapper();
 		leerSerializado();
 	}
 
 	@Override
-	public void crear(Visitante nuevoDato) {
-		listaVisitantes.add(nuevoDato);
+	public void crear(VisitanteDTO nuevoDato) {
+		listaVisitantes.add(DataMapper.convertirVisitanteDTOAVisitante(nuevoDato));
 		escribirSerializado();
 	}
 
@@ -31,11 +36,11 @@ public class VisitanteDAO implements DAO<Visitante> {
 	}
 
 	@Override
-	public boolean actualizar(int index, Visitante datoActualziado) {
+	public boolean actualizar(int index, VisitanteDTO datoActualizado) {
 		if (index < 0 || index >= listaVisitantes.size()) {
 			return false;
 		} else {
-			listaVisitantes.set(index, datoActualziado);
+			listaVisitantes.set(index, DataMapper.convertirVisitanteDTOAVisitante(datoActualizado));
 			escribirSerializado();
 			return true;
 		}
@@ -55,12 +60,21 @@ public class VisitanteDAO implements DAO<Visitante> {
 
 	@Override
 	public String mostrar(int index) {
-		return listaVisitantes.get(index).toString();
+		return DataMapper.convertirVisitanteAVisitanteDTO(listaVisitantes.get(index)).toString();
 	}
 
 	@Override
-	public ArrayList<Visitante> mostrarTodo() {
-		return listaVisitantes;
+	public ArrayList<VisitanteDTO> mostrarTodo() {
+		return DataMapper.convertirListaVisitanteAListaVisitanteDTO(listaVisitantes);
+	}
+
+	@Override
+	public void escribirArchivo() {
+		StringBuilder sb = new StringBuilder();
+		for (Visitante visitante : listaVisitantes) {
+			sb.append(visitante.toString() + "\n");
+		}
+		FileHandler.crearYEscribirArchivo(URL_ARCHIVO_TEXTO, sb.toString());
 	}
 
 	public void escribirSerializado() {
@@ -82,5 +96,13 @@ public class VisitanteDAO implements DAO<Visitante> {
 
 	public void setListaVisitantes(ArrayList<Visitante> listaVisitantes) {
 		this.listaVisitantes = listaVisitantes;
+	}
+
+	public DataMapper getDm() {
+		return dm;
+	}
+
+	public void setDm(DataMapper dm) {
+		this.dm = dm;
 	}
 }

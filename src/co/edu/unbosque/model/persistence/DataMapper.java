@@ -308,6 +308,24 @@ public class DataMapper {
 		return entidad;
 	}
 
+	public static ArrayList<CanchaMultipleDTO> convertirListaCanchaMultipleAListaCanchaMultipleDTO(
+			ArrayList<CanchaMultiple> listaEntidad) {
+		ArrayList<CanchaMultipleDTO> listaDTO = new ArrayList<>();
+		for (CanchaMultiple entidad : listaEntidad) {
+			listaDTO.add(convertirCanchaMultipleACanchaMultipleDTO(entidad));
+		}
+		return listaDTO;
+	}
+
+	public static ArrayList<CanchaMultiple> convertirListaCanchaMultipleDTOAListaCanchaMultiple(
+			ArrayList<CanchaMultipleDTO> listaDTO) {
+		ArrayList<CanchaMultiple> listaEntidad = new ArrayList<>();
+		for (CanchaMultipleDTO dto : listaDTO) {
+			listaEntidad.add(convertirCanchaMultipleDTOACanchaMultiple(dto));
+		}
+		return listaEntidad;
+	}
+
 	public static CoworkingDTO convertirCoworkingACoworkingDTO(Coworking entidad) {
 		CoworkingDTO dto = new CoworkingDTO();
 		copiarDatosZonaComun(entidad, dto);
@@ -326,6 +344,22 @@ public class DataMapper {
 		return entidad;
 	}
 
+	public static ArrayList<CoworkingDTO> convertirListaCoworkingAListaCoworkingDTO(ArrayList<Coworking> listaEntidad) {
+		ArrayList<CoworkingDTO> listaDTO = new ArrayList<>();
+		for (Coworking entidad : listaEntidad) {
+			listaDTO.add(convertirCoworkingACoworkingDTO(entidad));
+		}
+		return listaDTO;
+	}
+
+	public static ArrayList<Coworking> convertirListaCoworkingDTOAListaCoworking(ArrayList<CoworkingDTO> listaDTO) {
+		ArrayList<Coworking> listaEntidad = new ArrayList<>();
+		for (CoworkingDTO dto : listaDTO) {
+			listaEntidad.add(convertirCoworkingDTOACoworking(dto));
+		}
+		return listaEntidad;
+	}
+
 	public static SalonComunalDTO convertirSalonComunalASalonComunalDTO(SalonComunal entidad) {
 		SalonComunalDTO dto = new SalonComunalDTO();
 		copiarDatosZonaComun(entidad, dto);
@@ -342,6 +376,24 @@ public class DataMapper {
 		entidad.setUltimoMantenimiento(dto.getUltimoMantenimiento());
 		entidad.setCantidadSilla(dto.getCantidadSilla());
 		return entidad;
+	}
+
+	public static ArrayList<SalonComunalDTO> convertirListaSalonComunalAListaSalonComunalDTO(
+			ArrayList<SalonComunal> listaEntidad) {
+		ArrayList<SalonComunalDTO> listaDTO = new ArrayList<>();
+		for (SalonComunal entidad : listaEntidad) {
+			listaDTO.add(convertirSalonComunalASalonComunalDTO(entidad));
+		}
+		return listaDTO;
+	}
+
+	public static ArrayList<SalonComunal> convertirListaSalonComunalDTOAListaSalonComunal(
+			ArrayList<SalonComunalDTO> listaDTO) {
+		ArrayList<SalonComunal> listaEntidad = new ArrayList<>();
+		for (SalonComunalDTO dto : listaDTO) {
+			listaEntidad.add(convertirSalonComunalDTOASalonComunal(dto));
+		}
+		return listaEntidad;
 	}
 
 	public static ZonaBbqDTO convertirZonaBbqAZonaBbqDTO(ZonaBbq entidad) {
@@ -364,6 +416,22 @@ public class DataMapper {
 		return entidad;
 	}
 
+	public static ArrayList<ZonaBbqDTO> convertirListaZonaBbqAListaZonaBbqDTO(ArrayList<ZonaBbq> listaEntidad) {
+		ArrayList<ZonaBbqDTO> listaDTO = new ArrayList<>();
+		for (ZonaBbq entidad : listaEntidad) {
+			listaDTO.add(convertirZonaBbqAZonaBbqDTO(entidad));
+		}
+		return listaDTO;
+	}
+
+	public static ArrayList<ZonaBbq> convertirListaZonaBbqDTOAListaZonaBbq(ArrayList<ZonaBbqDTO> listaDTO) {
+		ArrayList<ZonaBbq> listaEntidad = new ArrayList<>();
+		for (ZonaBbqDTO dto : listaDTO) {
+			listaEntidad.add(convertirZonaBbqDTOAZonaBbq(dto));
+		}
+		return listaEntidad;
+	}
+
 	public static ZonaMascotaDTO convertirZonaMascotaAZonaMascotaDTO(ZonaMascota entidad) {
 		ZonaMascotaDTO dto = new ZonaMascotaDTO();
 		copiarDatosZonaComun(entidad, dto);
@@ -382,5 +450,55 @@ public class DataMapper {
 		entidad.setEstadoDeCaneca(dto.getEstadoDeCaneca());
 		entidad.setEstadoBebederos(dto.getEstadoBebederos());
 		return entidad;
+	}
+
+	public static ArrayList<ZonaMascotaDTO> convertirListaZonaMascotaAListaZonaMascotaDTO(
+			ArrayList<ZonaMascota> listaEntidad) {
+		ArrayList<ZonaMascotaDTO> listaDTO = new ArrayList<>();
+		for (ZonaMascota entidad : listaEntidad) {
+			listaDTO.add(convertirZonaMascotaAZonaMascotaDTO(entidad));
+		}
+		return listaDTO;
+	}
+
+	public static ArrayList<ZonaMascota> convertirListaZonaMascotaDTOAListaZonaMascota(
+			ArrayList<ZonaMascotaDTO> listaDTO) {
+		ArrayList<ZonaMascota> listaEntidad = new ArrayList<>();
+		for (ZonaMascotaDTO dto : listaDTO) {
+			listaEntidad.add(convertirZonaMascotaDTOAZonaMascota(dto));
+		}
+		return listaEntidad;
+	}
+
+	public static MultaDTO convertirMultaAMultaDTO(Multa entidad) {
+		MultaDTO dto = new MultaDTO();
+		dto.setRazon(entidad.getRazon());
+		dto.setCosto(entidad.getCosto());
+		dto.setContenido(entidad.getContenido());
+		return dto;
+	}
+
+	public static Multa convertirMultaDTOAMulta(MultaDTO dto) {
+		Multa entidad = new Multa();
+		entidad.setRazon(dto.getRazon());
+		entidad.setCosto(dto.getCosto());
+		entidad.setContenido(dto.getContenido());
+		return entidad;
+	}
+
+	public static ArrayList<MultaDTO> convertirListaMultaAListaMultaDTO(ArrayList<Multa> listaEntidad) {
+		ArrayList<MultaDTO> listaDTO = new ArrayList<>();
+		for (Multa entidad : listaEntidad) {
+			listaDTO.add(convertirMultaAMultaDTO(entidad));
+		}
+		return listaDTO;
+	}
+
+	public static ArrayList<Multa> convertirListaMultaDTOAListaMulta(ArrayList<MultaDTO> listaDTO) {
+		ArrayList<Multa> listaEntidad = new ArrayList<>();
+		for (MultaDTO dto : listaDTO) {
+			listaEntidad.add(convertirMultaDTOAMulta(dto));
+		}
+		return listaEntidad;
 	}
 }

@@ -1,21 +1,26 @@
 package co.edu.unbosque.model.persistence;
 
 import java.util.ArrayList;
-import co.edu.unbosque.model.Residente;
 
-public class ResidenteDAO implements DAO<Residente> {
+import co.edu.unbosque.model.Residente;
+import co.edu.unbosque.model.ResidenteDTO;
+
+public class ResidenteDAO implements DAO<Residente, ResidenteDTO> {
 
 	private ArrayList<Residente> listaResidentes;
+	private final String URL_ARCHIVO_TEXTO = "residentes.csv";
 	private final String URL_ARCHIVO_SERIALIZADO = "residentes.dat";
+	private DataMapper dm;
 
 	public ResidenteDAO() {
 		listaResidentes = new ArrayList<>();
+		dm = new DataMapper();
 		leerSerializado();
 	}
 
 	@Override
-	public void crear(Residente nuevoDato) {
-		listaResidentes.add(nuevoDato);
+	public void crear(ResidenteDTO nuevoDato) {
+		listaResidentes.add(DataMapper.convertirResidenteDTOAResidente(nuevoDato));
 		escribirSerializado();
 	}
 
@@ -31,11 +36,11 @@ public class ResidenteDAO implements DAO<Residente> {
 	}
 
 	@Override
-	public boolean actualizar(int index, Residente datoActualziado) {
+	public boolean actualizar(int index, ResidenteDTO datoActualizado) {
 		if (index < 0 || index >= listaResidentes.size()) {
 			return false;
 		} else {
-			listaResidentes.set(index, datoActualziado);
+			listaResidentes.set(index, DataMapper.convertirResidenteDTOAResidente(datoActualizado));
 			escribirSerializado();
 			return true;
 		}
@@ -55,12 +60,21 @@ public class ResidenteDAO implements DAO<Residente> {
 
 	@Override
 	public String mostrar(int index) {
-		return listaResidentes.get(index).toString();
+		return DataMapper.convertirResidenteAResidenteDTO(listaResidentes.get(index)).toString();
 	}
 
 	@Override
-	public ArrayList<Residente> mostrarTodo() {
-		return listaResidentes;
+	public ArrayList<ResidenteDTO> mostrarTodo() {
+		return DataMapper.convertirListaResidenteAListaResidenteDTO(listaResidentes);
+	}
+
+	@Override
+	public void escribirArchivo() {
+		StringBuilder sb = new StringBuilder();
+		for (Residente residente : listaResidentes) {
+			sb.append(residente.toString() + "\n");
+		}
+		FileHandler.crearYEscribirArchivo(URL_ARCHIVO_TEXTO, sb.toString());
 	}
 
 	public void escribirSerializado() {
@@ -82,5 +96,13 @@ public class ResidenteDAO implements DAO<Residente> {
 
 	public void setListaResidentes(ArrayList<Residente> listaResidentes) {
 		this.listaResidentes = listaResidentes;
+	}
+
+	public DataMapper getDm() {
+		return dm;
+	}
+
+	public void setDm(DataMapper dm) {
+		this.dm = dm;
 	}
 }

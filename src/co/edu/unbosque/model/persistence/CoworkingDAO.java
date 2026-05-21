@@ -1,21 +1,26 @@
 package co.edu.unbosque.model.persistence;
 
 import java.util.ArrayList;
-import co.edu.unbosque.model.Coworking;
 
-public class CoworkingDAO implements DAO<Coworking> {
+import co.edu.unbosque.model.Coworking;
+import co.edu.unbosque.model.CoworkingDTO;
+
+public class CoworkingDAO implements DAO<Coworking, CoworkingDTO> {
 
 	private ArrayList<Coworking> listaCoworkings;
+	private final String URL_ARCHIVO_TEXTO = "coworkings.csv";
 	private final String URL_ARCHIVO_SERIALIZADO = "coworkings.dat";
+	private DataMapper dm;
 
 	public CoworkingDAO() {
 		listaCoworkings = new ArrayList<>();
+		dm = new DataMapper();
 		leerSerializado();
 	}
 
 	@Override
-	public void crear(Coworking nuevoDato) {
-		listaCoworkings.add(nuevoDato);
+	public void crear(CoworkingDTO nuevoDato) {
+		listaCoworkings.add(DataMapper.convertirCoworkingDTOACoworking(nuevoDato));
 		escribirSerializado();
 	}
 
@@ -31,11 +36,11 @@ public class CoworkingDAO implements DAO<Coworking> {
 	}
 
 	@Override
-	public boolean actualizar(int index, Coworking datoActualziado) {
+	public boolean actualizar(int index, CoworkingDTO datoActualizado) {
 		if (index < 0 || index >= listaCoworkings.size()) {
 			return false;
 		} else {
-			listaCoworkings.set(index, datoActualziado);
+			listaCoworkings.set(index, DataMapper.convertirCoworkingDTOACoworking(datoActualizado));
 			escribirSerializado();
 			return true;
 		}
@@ -55,12 +60,21 @@ public class CoworkingDAO implements DAO<Coworking> {
 
 	@Override
 	public String mostrar(int index) {
-		return listaCoworkings.get(index).toString();
+		return DataMapper.convertirCoworkingACoworkingDTO(listaCoworkings.get(index)).toString();
 	}
 
 	@Override
-	public ArrayList<Coworking> mostrarTodo() {
-		return listaCoworkings;
+	public ArrayList<CoworkingDTO> mostrarTodo() {
+		return DataMapper.convertirListaCoworkingAListaCoworkingDTO(listaCoworkings);
+	}
+
+	@Override
+	public void escribirArchivo() {
+		StringBuilder sb = new StringBuilder();
+		for (Coworking coworking : listaCoworkings) {
+			sb.append(coworking.toString() + "\n");
+		}
+		FileHandler.crearYEscribirArchivo(URL_ARCHIVO_TEXTO, sb.toString());
 	}
 
 	public void escribirSerializado() {
@@ -82,5 +96,13 @@ public class CoworkingDAO implements DAO<Coworking> {
 
 	public void setListaCoworkings(ArrayList<Coworking> listaCoworkings) {
 		this.listaCoworkings = listaCoworkings;
+	}
+
+	public DataMapper getDm() {
+		return dm;
+	}
+
+	public void setDm(DataMapper dm) {
+		this.dm = dm;
 	}
 }

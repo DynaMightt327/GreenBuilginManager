@@ -1,21 +1,26 @@
 package co.edu.unbosque.model.persistence;
 
 import java.util.ArrayList;
-import co.edu.unbosque.model.Bicicletero;
 
-public class BicicleteroDAO implements DAO<Bicicletero> {
+import co.edu.unbosque.model.Bicicletero;
+import co.edu.unbosque.model.BicicleteroDTO;
+
+public class BicicleteroDAO implements DAO<Bicicletero, BicicleteroDTO> {
 
 	private ArrayList<Bicicletero> listaBicicleteros;
+	private final String URL_ARCHIVO_TEXTO = "bicicleteros.csv";
 	private final String URL_ARCHIVO_SERIALIZADO = "bicicleteros.dat";
+	private DataMapper dm;
 
 	public BicicleteroDAO() {
 		listaBicicleteros = new ArrayList<>();
+		dm = new DataMapper();
 		leerSerializado();
 	}
 
 	@Override
-	public void crear(Bicicletero nuevoDato) {
-		listaBicicleteros.add(nuevoDato);
+	public void crear(BicicleteroDTO nuevoDato) {
+		listaBicicleteros.add(DataMapper.convertirBicicleteroDTOABicicletero(nuevoDato));
 		escribirSerializado();
 	}
 
@@ -31,11 +36,11 @@ public class BicicleteroDAO implements DAO<Bicicletero> {
 	}
 
 	@Override
-	public boolean actualizar(int index, Bicicletero datoActualziado) {
+	public boolean actualizar(int index, BicicleteroDTO datoActualizado) {
 		if (index < 0 || index >= listaBicicleteros.size()) {
 			return false;
 		} else {
-			listaBicicleteros.set(index, datoActualziado);
+			listaBicicleteros.set(index, DataMapper.convertirBicicleteroDTOABicicletero(datoActualizado));
 			escribirSerializado();
 			return true;
 		}
@@ -55,12 +60,21 @@ public class BicicleteroDAO implements DAO<Bicicletero> {
 
 	@Override
 	public String mostrar(int index) {
-		return listaBicicleteros.get(index).toString();
+		return DataMapper.convertirBicicleteroABicicleteroDTO(listaBicicleteros.get(index)).toString();
 	}
 
 	@Override
-	public ArrayList<Bicicletero> mostrarTodo() {
-		return listaBicicleteros;
+	public ArrayList<BicicleteroDTO> mostrarTodo() {
+		return DataMapper.convertirListaBicicleteroAListaBicicleteroDTO(listaBicicleteros);
+	}
+
+	@Override
+	public void escribirArchivo() {
+		StringBuilder sb = new StringBuilder();
+		for (Bicicletero bicicletero : listaBicicleteros) {
+			sb.append(bicicletero.toString() + "\n");
+		}
+		FileHandler.crearYEscribirArchivo(URL_ARCHIVO_TEXTO, sb.toString());
 	}
 
 	public void escribirSerializado() {
@@ -82,5 +96,13 @@ public class BicicleteroDAO implements DAO<Bicicletero> {
 
 	public void setListaBicicleteros(ArrayList<Bicicletero> listaBicicleteros) {
 		this.listaBicicleteros = listaBicicleteros;
+	}
+
+	public DataMapper getDm() {
+		return dm;
+	}
+
+	public void setDm(DataMapper dm) {
+		this.dm = dm;
 	}
 }

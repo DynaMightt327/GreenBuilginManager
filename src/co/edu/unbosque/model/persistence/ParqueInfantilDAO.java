@@ -1,21 +1,26 @@
 package co.edu.unbosque.model.persistence;
 
 import java.util.ArrayList;
-import co.edu.unbosque.model.ParqueInfantil;
 
-public class ParqueInfantilDAO implements DAO<ParqueInfantil> {
+import co.edu.unbosque.model.ParqueInfantil;
+import co.edu.unbosque.model.ParqueInfantilDTO;
+
+public class ParqueInfantilDAO implements DAO<ParqueInfantil, ParqueInfantilDTO> {
 
 	private ArrayList<ParqueInfantil> listaParquesInfantiles;
+	private final String URL_ARCHIVO_TEXTO = "parquesInfantiles.csv";
 	private final String URL_ARCHIVO_SERIALIZADO = "parquesInfantiles.dat";
+	private DataMapper dm;
 
 	public ParqueInfantilDAO() {
 		listaParquesInfantiles = new ArrayList<>();
+		dm = new DataMapper();
 		leerSerializado();
 	}
 
 	@Override
-	public void crear(ParqueInfantil nuevoDato) {
-		listaParquesInfantiles.add(nuevoDato);
+	public void crear(ParqueInfantilDTO nuevoDato) {
+		listaParquesInfantiles.add(DataMapper.convertirParqueInfantilDTOAParqueInfantil(nuevoDato));
 		escribirSerializado();
 	}
 
@@ -31,11 +36,11 @@ public class ParqueInfantilDAO implements DAO<ParqueInfantil> {
 	}
 
 	@Override
-	public boolean actualizar(int index, ParqueInfantil datoActualziado) {
+	public boolean actualizar(int index, ParqueInfantilDTO datoActualizado) {
 		if (index < 0 || index >= listaParquesInfantiles.size()) {
 			return false;
 		} else {
-			listaParquesInfantiles.set(index, datoActualziado);
+			listaParquesInfantiles.set(index, DataMapper.convertirParqueInfantilDTOAParqueInfantil(datoActualizado));
 			escribirSerializado();
 			return true;
 		}
@@ -55,12 +60,21 @@ public class ParqueInfantilDAO implements DAO<ParqueInfantil> {
 
 	@Override
 	public String mostrar(int index) {
-		return listaParquesInfantiles.get(index).toString();
+		return DataMapper.convertirParqueInfantilAParqueInfantilDTO(listaParquesInfantiles.get(index)).toString();
 	}
 
 	@Override
-	public ArrayList<ParqueInfantil> mostrarTodo() {
-		return listaParquesInfantiles;
+	public ArrayList<ParqueInfantilDTO> mostrarTodo() {
+		return DataMapper.convertirListaParqueInfantilAListaParqueInfantilDTO(listaParquesInfantiles);
+	}
+
+	@Override
+	public void escribirArchivo() {
+		StringBuilder sb = new StringBuilder();
+		for (ParqueInfantil parqueInfantil : listaParquesInfantiles) {
+			sb.append(parqueInfantil.toString() + "\n");
+		}
+		FileHandler.crearYEscribirArchivo(URL_ARCHIVO_TEXTO, sb.toString());
 	}
 
 	public void escribirSerializado() {
@@ -82,5 +96,13 @@ public class ParqueInfantilDAO implements DAO<ParqueInfantil> {
 
 	public void setListaParquesInfantiles(ArrayList<ParqueInfantil> listaParquesInfantiles) {
 		this.listaParquesInfantiles = listaParquesInfantiles;
+	}
+
+	public DataMapper getDm() {
+		return dm;
+	}
+
+	public void setDm(DataMapper dm) {
+		this.dm = dm;
 	}
 }

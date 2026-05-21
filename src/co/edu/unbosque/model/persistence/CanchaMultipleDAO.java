@@ -1,21 +1,26 @@
 package co.edu.unbosque.model.persistence;
 
 import java.util.ArrayList;
-import co.edu.unbosque.model.CanchaMultiple;
 
-public class CanchaMultipleDAO implements DAO<CanchaMultiple> {
+import co.edu.unbosque.model.CanchaMultiple;
+import co.edu.unbosque.model.CanchaMultipleDTO;
+
+public class CanchaMultipleDAO implements DAO<CanchaMultiple, CanchaMultipleDTO> {
 
 	private ArrayList<CanchaMultiple> listaCanchasMultiples;
+	private final String URL_ARCHIVO_TEXTO = "canchasMultiples.csv";
 	private final String URL_ARCHIVO_SERIALIZADO = "canchasMultiples.dat";
+	private DataMapper dm;
 
 	public CanchaMultipleDAO() {
 		listaCanchasMultiples = new ArrayList<>();
+		dm = new DataMapper();
 		leerSerializado();
 	}
 
 	@Override
-	public void crear(CanchaMultiple nuevoDato) {
-		listaCanchasMultiples.add(nuevoDato);
+	public void crear(CanchaMultipleDTO nuevoDato) {
+		listaCanchasMultiples.add(DataMapper.convertirCanchaMultipleDTOACanchaMultiple(nuevoDato));
 		escribirSerializado();
 	}
 
@@ -31,11 +36,11 @@ public class CanchaMultipleDAO implements DAO<CanchaMultiple> {
 	}
 
 	@Override
-	public boolean actualizar(int index, CanchaMultiple datoActualziado) {
+	public boolean actualizar(int index, CanchaMultipleDTO datoActualizado) {
 		if (index < 0 || index >= listaCanchasMultiples.size()) {
 			return false;
 		} else {
-			listaCanchasMultiples.set(index, datoActualziado);
+			listaCanchasMultiples.set(index, DataMapper.convertirCanchaMultipleDTOACanchaMultiple(datoActualizado));
 			escribirSerializado();
 			return true;
 		}
@@ -55,12 +60,21 @@ public class CanchaMultipleDAO implements DAO<CanchaMultiple> {
 
 	@Override
 	public String mostrar(int index) {
-		return listaCanchasMultiples.get(index).toString();
+		return DataMapper.convertirCanchaMultipleACanchaMultipleDTO(listaCanchasMultiples.get(index)).toString();
 	}
 
 	@Override
-	public ArrayList<CanchaMultiple> mostrarTodo() {
-		return listaCanchasMultiples;
+	public ArrayList<CanchaMultipleDTO> mostrarTodo() {
+		return DataMapper.convertirListaCanchaMultipleAListaCanchaMultipleDTO(listaCanchasMultiples);
+	}
+
+	@Override
+	public void escribirArchivo() {
+		StringBuilder sb = new StringBuilder();
+		for (CanchaMultiple canchaMultiple : listaCanchasMultiples) {
+			sb.append(canchaMultiple.toString() + "\n");
+		}
+		FileHandler.crearYEscribirArchivo(URL_ARCHIVO_TEXTO, sb.toString());
 	}
 
 	public void escribirSerializado() {
@@ -82,5 +96,13 @@ public class CanchaMultipleDAO implements DAO<CanchaMultiple> {
 
 	public void setListaCanchasMultiples(ArrayList<CanchaMultiple> listaCanchasMultiples) {
 		this.listaCanchasMultiples = listaCanchasMultiples;
+	}
+
+	public DataMapper getDm() {
+		return dm;
+	}
+
+	public void setDm(DataMapper dm) {
+		this.dm = dm;
 	}
 }

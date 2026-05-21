@@ -1,21 +1,26 @@
 package co.edu.unbosque.model.persistence;
 
 import java.util.ArrayList;
-import co.edu.unbosque.model.ZonaMascota;
 
-public class ZonaMascotaDAO implements DAO<ZonaMascota> {
+import co.edu.unbosque.model.ZonaMascota;
+import co.edu.unbosque.model.ZonaMascotaDTO;
+
+public class ZonaMascotaDAO implements DAO<ZonaMascota, ZonaMascotaDTO> {
 
 	private ArrayList<ZonaMascota> listaZonasMascotas;
+	private final String URL_ARCHIVO_TEXTO = "zonasMascotas.csv";
 	private final String URL_ARCHIVO_SERIALIZADO = "zonasMascotas.dat";
+	private DataMapper dm;
 
 	public ZonaMascotaDAO() {
 		listaZonasMascotas = new ArrayList<>();
+		dm = new DataMapper();
 		leerSerializado();
 	}
 
 	@Override
-	public void crear(ZonaMascota nuevoDato) {
-		listaZonasMascotas.add(nuevoDato);
+	public void crear(ZonaMascotaDTO nuevoDato) {
+		listaZonasMascotas.add(DataMapper.convertirZonaMascotaDTOAZonaMascota(nuevoDato));
 		escribirSerializado();
 	}
 
@@ -31,11 +36,11 @@ public class ZonaMascotaDAO implements DAO<ZonaMascota> {
 	}
 
 	@Override
-	public boolean actualizar(int index, ZonaMascota datoActualziado) {
+	public boolean actualizar(int index, ZonaMascotaDTO datoActualizado) {
 		if (index < 0 || index >= listaZonasMascotas.size()) {
 			return false;
 		} else {
-			listaZonasMascotas.set(index, datoActualziado);
+			listaZonasMascotas.set(index, DataMapper.convertirZonaMascotaDTOAZonaMascota(datoActualizado));
 			escribirSerializado();
 			return true;
 		}
@@ -55,12 +60,21 @@ public class ZonaMascotaDAO implements DAO<ZonaMascota> {
 
 	@Override
 	public String mostrar(int index) {
-		return listaZonasMascotas.get(index).toString();
+		return DataMapper.convertirZonaMascotaAZonaMascotaDTO(listaZonasMascotas.get(index)).toString();
 	}
 
 	@Override
-	public ArrayList<ZonaMascota> mostrarTodo() {
-		return listaZonasMascotas;
+	public ArrayList<ZonaMascotaDTO> mostrarTodo() {
+		return DataMapper.convertirListaZonaMascotaAListaZonaMascotaDTO(listaZonasMascotas);
+	}
+
+	@Override
+	public void escribirArchivo() {
+		StringBuilder sb = new StringBuilder();
+		for (ZonaMascota zonaMascota : listaZonasMascotas) {
+			sb.append(zonaMascota.toString() + "\n");
+		}
+		FileHandler.crearYEscribirArchivo(URL_ARCHIVO_TEXTO, sb.toString());
 	}
 
 	public void escribirSerializado() {
@@ -82,5 +96,13 @@ public class ZonaMascotaDAO implements DAO<ZonaMascota> {
 
 	public void setListaZonasMascotas(ArrayList<ZonaMascota> listaZonasMascotas) {
 		this.listaZonasMascotas = listaZonasMascotas;
+	}
+
+	public DataMapper getDm() {
+		return dm;
+	}
+
+	public void setDm(DataMapper dm) {
+		this.dm = dm;
 	}
 }

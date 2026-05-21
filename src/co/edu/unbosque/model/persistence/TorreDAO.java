@@ -63,6 +63,15 @@ public class TorreDAO implements DAO<Torre> {
 		return listaTorres;
 	}
 
+	@Override
+	public void escribirArchivo() {
+		StringBuilder sb = new StringBuilder();
+		for (Torre torre : listaTorres) {
+			sb.append(torre.toString() + "\n");
+		}
+		FileHandler.crearYEscribirArchivo("torres.csv", sb.toString());
+	}
+
 	public void escribirSerializado() {
 		FileHandler.crearYEscribirArchivoSerializado(URL_ARCHIVO_SERIALIZADO, listaTorres);
 	}

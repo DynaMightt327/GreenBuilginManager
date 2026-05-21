@@ -9,10 +9,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
 
 public class PanelPrincipalResidente extends JPanel {
+	
+	private PanelZonaComun pzc;
 
 	private JPanel panelIzq;
 	private JLabel logo;
@@ -56,6 +57,10 @@ public class PanelPrincipalResidente extends JPanel {
 		this.setBounds(0, 0, 1100, 720);
 		this.setLayout(null);
 		this.setBackground(Color.decode("#a8afd1"));
+		
+		pzc = new PanelZonaComun();
+		pzc.setVisible(false);
+		add(pzc);
 		
 		mapa = new JLabel();
 		mapa.setBounds(160, 130, 630, 250);
@@ -255,6 +260,206 @@ public class PanelPrincipalResidente extends JPanel {
 
 	public void setVolver(JButton volver) {
 		this.volver = volver;
+	}
+
+	public PanelZonaComun getPzc() {
+		return pzc;
+	}
+
+	public void setPzc(PanelZonaComun pzc) {
+		this.pzc = pzc;
+	}
+
+	public JPanel getPanelIzq() {
+		return panelIzq;
+	}
+
+	public void setPanelIzq(JPanel panelIzq) {
+		this.panelIzq = panelIzq;
+	}
+
+	public JLabel getLogo() {
+		return logo;
+	}
+
+	public void setLogo(JLabel logo) {
+		this.logo = logo;
+	}
+
+	public JButton getReservar() {
+		return reservar;
+	}
+
+	public void setReservar(JButton reservar) {
+		this.reservar = reservar;
+	}
+
+	public JButton getVerEspacios() {
+		return verEspacios;
+	}
+
+	public void setVerEspacios(JButton verEspacios) {
+		this.verEspacios = verEspacios;
+	}
+
+	public JButton getVerMulta() {
+		return verMulta;
+	}
+
+	public void setVerMulta(JButton verMulta) {
+		this.verMulta = verMulta;
+	}
+
+	public JButton getGenerarRepote() {
+		return generarRepote;
+	}
+
+	public void setGenerarRepote(JButton generarRepote) {
+		this.generarRepote = generarRepote;
+	}
+
+	public JPanel getPanelSup() {
+		return panelSup;
+	}
+
+	public void setPanelSup(JPanel panelSup) {
+		this.panelSup = panelSup;
+	}
+
+	public JLabel getBienvenida() {
+		return bienvenida;
+	}
+
+	public void setBienvenida(JLabel bienvenida) {
+		this.bienvenida = bienvenida;
+	}
+
+	public JLabel getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(JLabel titulo) {
+		this.titulo = titulo;
+	}
+
+	public JPanel getPanelDer() {
+		return panelDer;
+	}
+
+	public void setPanelDer(JPanel panelDer) {
+		this.panelDer = panelDer;
+	}
+
+	public JPanel getpInfoPersona() {
+		return pInfoPersona;
+	}
+
+	public void setpInfoPersona(JPanel pInfoPersona) {
+		this.pInfoPersona = pInfoPersona;
+	}
+
+	public JLabel getFotoPreview() {
+		return fotoPreview;
+	}
+
+	public void setFotoPreview(JLabel fotoPreview) {
+		this.fotoPreview = fotoPreview;
+	}
+
+	public JLabel getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(JLabel nombre) {
+		this.nombre = nombre;
+	}
+
+	public JLabel getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(JLabel tipo) {
+		this.tipo = tipo;
+	}
+
+	public JPanel getpNotificacion() {
+		return pNotificacion;
+	}
+
+	public void setpNotificacion(JPanel pNotificacion) {
+		this.pNotificacion = pNotificacion;
+	}
+
+	public JLabel getNoti() {
+		return noti;
+	}
+
+	public void setNoti(JLabel noti) {
+		this.noti = noti;
+	}
+
+	public JTable getCampoNoti() {
+		return campoNoti;
+	}
+
+	public void setCampoNoti(JTable campoNoti) {
+		this.campoNoti = campoNoti;
+	}
+
+	public JPanel getpPaquete() {
+		return pPaquete;
+	}
+
+	public void setpPaquete(JPanel pPaquete) {
+		this.pPaquete = pPaquete;
+	}
+
+	public JLabel getPaquete() {
+		return paquete;
+	}
+
+	public void setPaquete(JLabel paquete) {
+		this.paquete = paquete;
+	}
+
+	public JTable getCampoPaquete() {
+		return campoPaquete;
+	}
+
+	public void setCampoPaquete(JTable campoPaquete) {
+		this.campoPaquete = campoPaquete;
+	}
+
+	public JPanel getpFamilia() {
+		return pFamilia;
+	}
+
+	public void setpFamilia(JPanel pFamilia) {
+		this.pFamilia = pFamilia;
+	}
+
+	public JLabel getPersona() {
+		return persona;
+	}
+
+	public void setPersona(JLabel persona) {
+		this.persona = persona;
+	}
+
+	public JTable getTablaPersona() {
+		return tablaPersona;
+	}
+
+	public void setTablaPersona(JTable tablaPersona) {
+		this.tablaPersona = tablaPersona;
+	}
+
+	public JLabel getMapa() {
+		return mapa;
+	}
+
+	public void setMapa(JLabel mapa) {
+		this.mapa = mapa;
 	}
 	
 }

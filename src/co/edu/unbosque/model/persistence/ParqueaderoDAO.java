@@ -1,21 +1,26 @@
 package co.edu.unbosque.model.persistence;
 
 import java.util.ArrayList;
-import co.edu.unbosque.model.Parqueadero;
 
-public class ParqueaderoDAO implements DAO<Parqueadero> {
+import co.edu.unbosque.model.Parqueadero;
+import co.edu.unbosque.model.ParqueaderoDTO;
+
+public class ParqueaderoDAO implements DAO<Parqueadero, ParqueaderoDTO> {
 
 	private ArrayList<Parqueadero> listaParqueaderos;
+	private final String URL_ARCHIVO_TEXTO = "parqueaderos.csv";
 	private final String URL_ARCHIVO_SERIALIZADO = "parqueaderos.dat";
+	private DataMapper dm;
 
 	public ParqueaderoDAO() {
 		listaParqueaderos = new ArrayList<>();
+		dm = new DataMapper();
 		leerSerializado();
 	}
 
 	@Override
-	public void crear(Parqueadero nuevoDato) {
-		listaParqueaderos.add(nuevoDato);
+	public void crear(ParqueaderoDTO nuevoDato) {
+		listaParqueaderos.add(DataMapper.convertirParqueaderoDTOAParqueadero(nuevoDato));
 		escribirSerializado();
 	}
 
@@ -31,11 +36,11 @@ public class ParqueaderoDAO implements DAO<Parqueadero> {
 	}
 
 	@Override
-	public boolean actualizar(int index, Parqueadero datoActualziado) {
+	public boolean actualizar(int index, ParqueaderoDTO datoActualizado) {
 		if (index < 0 || index >= listaParqueaderos.size()) {
 			return false;
 		} else {
-			listaParqueaderos.set(index, datoActualziado);
+			listaParqueaderos.set(index, DataMapper.convertirParqueaderoDTOAParqueadero(datoActualizado));
 			escribirSerializado();
 			return true;
 		}
@@ -55,12 +60,21 @@ public class ParqueaderoDAO implements DAO<Parqueadero> {
 
 	@Override
 	public String mostrar(int index) {
-		return listaParqueaderos.get(index).toString();
+		return DataMapper.convertirParqueaderoAParqueaderoDTO(listaParqueaderos.get(index)).toString();
 	}
 
 	@Override
-	public ArrayList<Parqueadero> mostrarTodo() {
-		return listaParqueaderos;
+	public ArrayList<ParqueaderoDTO> mostrarTodo() {
+		return DataMapper.convertirListaParqueaderoAListaParqueaderoDTO(listaParqueaderos);
+	}
+
+	@Override
+	public void escribirArchivo() {
+		StringBuilder sb = new StringBuilder();
+		for (Parqueadero parqueadero : listaParqueaderos) {
+			sb.append(parqueadero.toString() + "\n");
+		}
+		FileHandler.crearYEscribirArchivo(URL_ARCHIVO_TEXTO, sb.toString());
 	}
 
 	public void escribirSerializado() {
@@ -82,5 +96,13 @@ public class ParqueaderoDAO implements DAO<Parqueadero> {
 
 	public void setListaParqueaderos(ArrayList<Parqueadero> listaParqueaderos) {
 		this.listaParqueaderos = listaParqueaderos;
+	}
+
+	public DataMapper getDm() {
+		return dm;
+	}
+
+	public void setDm(DataMapper dm) {
+		this.dm = dm;
 	}
 }
