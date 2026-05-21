@@ -2,6 +2,7 @@ package co.edu.unbosque.model;
 
 public class Residente extends Persona {
 	
+	private String tipo;
 	private int torre;
 	private int apartamento;
 	private int piso;
@@ -67,6 +68,14 @@ public class Residente extends Persona {
 			String rutaFoto, String estado, String contrasena) {
 		super(nombre, apellido, edad, genero, correo, id, telefono, rutaFoto, estado, contrasena);
 		// TODO Auto-generated constructor stub
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 	public int getTorre() {
@@ -183,7 +192,7 @@ public class Residente extends Persona {
 
 	@Override
 	public String toString() {
-		return super.toString() +"Residente [torre=" + torre + ", apartamento=" + apartamento + ", piso=" + piso + ", tieneReporte="
+		return super.toString() +"Residente [tipo=" + tipo + ", torre=" + torre + ", apartamento=" + apartamento + ", piso=" + piso + ", tieneReporte="
 				+ tieneReporte + ", numeroReporte=" + numeroReporte + ", contenidoReporte=" + contenidoReporte
 				+ ", tieneMulta=" + tieneMulta + ", costoMulta=" + costoMulta + ", razonMulta=" + razonMulta
 				+ ", cantidadDeMulta=" + cantidadDeMulta + ", tieneParqueadero=" + tieneParqueadero
