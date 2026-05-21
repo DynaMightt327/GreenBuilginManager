@@ -76,10 +76,6 @@ public class PanelRegistrarResidente extends JPanel{
 		this.setLayout(null);
 		this.setBackground(Color.decode("#ddd3f2"));
 
-		// ─────────────────────────────────────────
-		// COLUMNA 1 — Datos personales (x=30)
-		// ─────────────────────────────────────────
-
 		nombre = new JLabel("Nombre/s");
 		nombre.setBounds(30, 20, 200, 20);
 		add(nombre);

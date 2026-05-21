@@ -12,7 +12,6 @@ public class VentanaAdministrador extends JFrame {
 	private PanelRegistrarAdministrador pra;
 	private JPanel panelBotones;
 	
-
 	private JButton volver;
 	private JButton iniciarSesion;
 	private JButton registrar;
