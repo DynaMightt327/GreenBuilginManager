@@ -1,6 +1,5 @@
 package co.edu.unbosque.model;
 
-public class CanchaMultiple {
-	
+public class Reporte {
 
 }
