@@ -41,6 +41,12 @@ public class Controller implements ActionListener {
 		// ===========RESIDENTE==============
 		vf.getVr().getVolver().addActionListener(this);
 		vf.getVr().getVolver().setActionCommand("volver_en_residente");
+		
+		vf.getVr().getRegistrar().addActionListener(this);
+		vf.getVr().getRegistrar().setActionCommand("registrar_residente");
+		
+		vf.getVr().getPrr().getVolver().addActionListener(this);
+		vf.getVr().getPrr().getVolver().setActionCommand("volver_registrar_residente");
 
 		// ===========EMPLEADO==============
 		vf.getVe().getVolver().addActionListener(this);
@@ -49,6 +55,7 @@ public class Controller implements ActionListener {
 		// ===========VISITANTE==============
 		vf.getVv().getVolver().addActionListener(this);
 		vf.getVv().getVolver().setActionCommand("volver_en_visitante");
+		
 
 	}
 
@@ -80,6 +87,16 @@ public class Controller implements ActionListener {
 			vf.getVi().setVisible(true);
 			break;
 		}
+		case "iniciar_empleado": {
+			vf.getVi().setVisible(false);
+			vf.getVe().setVisible(true);
+			break;
+		}
+		case "volver_en_empleado": {
+			vf.getVe().setVisible(false);
+			vf.getVi().setVisible(true);
+			break;
+		}
 		case "iniciar_visitante": {
 			vf.getVi().setVisible(false);
 			vf.getVv().setVisible(true);
@@ -98,6 +115,16 @@ public class Controller implements ActionListener {
 		case "volver_registrar_admin":{
 			vf.getVa().getPanelBotones().setVisible(true);
 			vf.getVa().getPra().setVisible(false);
+			break;
+		}
+		case "registrar_residente":{
+			vf.getVr().getPanelBotones().setVisible(false);
+			vf.getVr().getPrr().setVisible(true);
+			break;
+		}
+		case "volver_registrar_residente":{
+			vf.getVr().getPanelBotones().setVisible(true);
+			vf.getVr().getPrr().setVisible(false);
 			break;
 		}
 		default: {

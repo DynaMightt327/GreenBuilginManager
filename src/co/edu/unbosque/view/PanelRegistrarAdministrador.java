@@ -53,10 +53,6 @@ public class PanelRegistrarAdministrador extends JPanel{
 		this.setBounds(0, 0, 1100, 720);
 		this.setLayout(null);
 		this.setBackground(Color.decode("#ddd3f2"));
-		
-		// ─────────────────────────────────────────
-		// COLUMNA 1 — Datos personales (x=30)
-		// ─────────────────────────────────────────
 
 		nombre = new JLabel("Nombre/s");
 		nombre.setBounds(30, 20, 150, 20);
@@ -105,10 +101,6 @@ public class PanelRegistrarAdministrador extends JPanel{
 		volver.setBorderPainted(false);
 		add(volver);
 
-		// ─────────────────────────────────────────
-		// COLUMNA 2 — Datos de cuenta (x=380)
-		// ─────────────────────────────────────────
-
 		id = new JLabel("Número de documento");
 		id.setBounds(380, 20, 200, 20);
 		add(id);
@@ -155,10 +147,6 @@ public class PanelRegistrarAdministrador extends JPanel{
 		guardar.setFocusPainted(false);
 		guardar.setBorderPainted(false);
 		add(guardar);
-
-		// ─────────────────────────────────────────
-		// COLUMNA 3 — Datos laborales (x=730)
-		// ─────────────────────────────────────────
 
 		salario = new JLabel("Salario");
 		salario.setBounds(730, 20, 150, 20);

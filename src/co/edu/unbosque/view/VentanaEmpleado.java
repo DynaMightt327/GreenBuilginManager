@@ -19,7 +19,7 @@ public class VentanaEmpleado extends JFrame{
 
 	public void iniComponentes() {
 		// CONFIGURACION DE LA VENTANA
-		setTitle("ventana administrador");
+		setTitle("ventana empelado");
 		setBounds(230, 5, 1100, 720);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setResizable(false);
