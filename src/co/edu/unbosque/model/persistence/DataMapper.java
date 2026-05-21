@@ -6,29 +6,18 @@ import co.edu.unbosque.model.*;
 
 public class DataMapper {
 
-	private static void copiarDatosPersona(Persona origen, Persona destino) {
-		destino.setNombre(origen.getNombre());
-		destino.setApellido(origen.getApellido());
-		destino.setEdad(origen.getEdad());
-		destino.setGenero(origen.getGenero());
-		destino.setCorreo(origen.getCorreo());
-		destino.setId(origen.getId());
-		destino.setTelefono(origen.getTelefono());
-		destino.setRutaFoto(origen.getRutaFoto());
-		destino.setEstado(origen.getEstado());
-		destino.setContrasena(origen.getContrasena());
-	}
-
-	private static void copiarDatosZonaComun(ZonaComun origen, ZonaComun destino) {
-		destino.setEstado(origen.getEstado());
-		destino.setMedidaCuadrada(origen.getMedidaCuadrada());
-		destino.setEstaDisponible(origen.isEstaDisponible());
-		destino.setCapacidadMaxima(origen.getCapacidadMaxima());
-	}
-
 	public static AdministradorDTO convertirAdministradorAAdministradorDTO(Administrador entidad) {
 		AdministradorDTO dto = new AdministradorDTO();
-		copiarDatosPersona(entidad, dto);
+		dto.setNombre(entidad.getNombre());
+		dto.setApellido(entidad.getApellido());
+		dto.setEdad(entidad.getEdad());
+		dto.setGenero(entidad.getGenero());
+		dto.setCorreo(entidad.getCorreo());
+		dto.setId(entidad.getId());
+		dto.setTelefono(entidad.getTelefono());
+		dto.setRutaFoto(entidad.getRutaFoto());
+		dto.setEstado(entidad.getEstado());
+		dto.setContrasena(entidad.getContrasena());
 		dto.setConjuntoACargo(entidad.getConjuntoACargo());
 		dto.setSalario(entidad.getSalario());
 		dto.setTipoContrato(entidad.getTipoContrato());
@@ -37,7 +26,16 @@ public class DataMapper {
 
 	public static Administrador convertirAdministradorDTOAAdministrador(AdministradorDTO dto) {
 		Administrador entidad = new Administrador();
-		copiarDatosPersona(dto, entidad);
+		entidad.setNombre(dto.getNombre());
+		entidad.setApellido(dto.getApellido());
+		entidad.setEdad(dto.getEdad());
+		entidad.setGenero(dto.getGenero());
+		entidad.setCorreo(dto.getCorreo());
+		entidad.setId(dto.getId());
+		entidad.setTelefono(dto.getTelefono());
+		entidad.setRutaFoto(dto.getRutaFoto());
+		entidad.setEstado(dto.getEstado());
+		entidad.setContrasena(dto.getContrasena());
 		entidad.setConjuntoACargo(dto.getConjuntoACargo());
 		entidad.setSalario(dto.getSalario());
 		entidad.setTipoContrato(dto.getTipoContrato());
@@ -64,7 +62,16 @@ public class DataMapper {
 
 	public static ResidenteDTO convertirResidenteAResidenteDTO(Residente entidad) {
 		ResidenteDTO dto = new ResidenteDTO();
-		copiarDatosPersona(entidad, dto);
+		dto.setNombre(entidad.getNombre());
+		dto.setApellido(entidad.getApellido());
+		dto.setEdad(entidad.getEdad());
+		dto.setGenero(entidad.getGenero());
+		dto.setCorreo(entidad.getCorreo());
+		dto.setId(entidad.getId());
+		dto.setTelefono(entidad.getTelefono());
+		dto.setRutaFoto(entidad.getRutaFoto());
+		dto.setEstado(entidad.getEstado());
+		dto.setContrasena(entidad.getContrasena());
 		dto.setTorre(entidad.getTorre());
 		dto.setApartamento(entidad.getApartamento());
 		dto.setPiso(entidad.getPiso());
@@ -84,7 +91,16 @@ public class DataMapper {
 
 	public static Residente convertirResidenteDTOAResidente(ResidenteDTO dto) {
 		Residente entidad = new Residente();
-		copiarDatosPersona(dto, entidad);
+		entidad.setNombre(dto.getNombre());
+		entidad.setApellido(dto.getApellido());
+		entidad.setEdad(dto.getEdad());
+		entidad.setGenero(dto.getGenero());
+		entidad.setCorreo(dto.getCorreo());
+		entidad.setId(dto.getId());
+		entidad.setTelefono(dto.getTelefono());
+		entidad.setRutaFoto(dto.getRutaFoto());
+		entidad.setEstado(dto.getEstado());
+		entidad.setContrasena(dto.getContrasena());
 		entidad.setTorre(dto.getTorre());
 		entidad.setApartamento(dto.getApartamento());
 		entidad.setPiso(dto.getPiso());
@@ -120,14 +136,32 @@ public class DataMapper {
 
 	public static VigilanteDTO convertirVigilanteAVigilanteDTO(Vigilante entidad) {
 		VigilanteDTO dto = new VigilanteDTO();
-		copiarDatosPersona(entidad, dto);
+		dto.setNombre(entidad.getNombre());
+		dto.setApellido(entidad.getApellido());
+		dto.setEdad(entidad.getEdad());
+		dto.setGenero(entidad.getGenero());
+		dto.setCorreo(entidad.getCorreo());
+		dto.setId(entidad.getId());
+		dto.setTelefono(entidad.getTelefono());
+		dto.setRutaFoto(entidad.getRutaFoto());
+		dto.setEstado(entidad.getEstado());
+		dto.setContrasena(entidad.getContrasena());
 		dto.setHorario(entidad.getHorario());
 		return dto;
 	}
 
 	public static Vigilante convertirVigilanteDTOAVigilante(VigilanteDTO dto) {
 		Vigilante entidad = new Vigilante();
-		copiarDatosPersona(dto, entidad);
+		entidad.setNombre(dto.getNombre());
+		entidad.setApellido(dto.getApellido());
+		entidad.setEdad(dto.getEdad());
+		entidad.setGenero(dto.getGenero());
+		entidad.setCorreo(dto.getCorreo());
+		entidad.setId(dto.getId());
+		entidad.setTelefono(dto.getTelefono());
+		entidad.setRutaFoto(dto.getRutaFoto());
+		entidad.setEstado(dto.getEstado());
+		entidad.setContrasena(dto.getContrasena());
 		entidad.setHorario(dto.getHorario());
 		return entidad;
 	}
@@ -150,7 +184,16 @@ public class DataMapper {
 
 	public static VisitanteDTO convertirVisitanteAVisitanteDTO(Visitante entidad) {
 		VisitanteDTO dto = new VisitanteDTO();
-		copiarDatosPersona(entidad, dto);
+		dto.setNombre(entidad.getNombre());
+		dto.setApellido(entidad.getApellido());
+		dto.setEdad(entidad.getEdad());
+		dto.setGenero(entidad.getGenero());
+		dto.setCorreo(entidad.getCorreo());
+		dto.setId(entidad.getId());
+		dto.setTelefono(entidad.getTelefono());
+		dto.setRutaFoto(entidad.getRutaFoto());
+		dto.setEstado(entidad.getEstado());
+		dto.setContrasena(entidad.getContrasena());
 		dto.setTorre(entidad.getTorre());
 		dto.setPiso(entidad.getPiso());
 		dto.setApartamento(entidad.getApartamento());
@@ -160,7 +203,16 @@ public class DataMapper {
 
 	public static Visitante convertirVisitanteDTOAVisitante(VisitanteDTO dto) {
 		Visitante entidad = new Visitante();
-		copiarDatosPersona(dto, entidad);
+		entidad.setNombre(dto.getNombre());
+		entidad.setApellido(dto.getApellido());
+		entidad.setEdad(dto.getEdad());
+		entidad.setGenero(dto.getGenero());
+		entidad.setCorreo(dto.getCorreo());
+		entidad.setId(dto.getId());
+		entidad.setTelefono(dto.getTelefono());
+		entidad.setRutaFoto(dto.getRutaFoto());
+		entidad.setEstado(dto.getEstado());
+		entidad.setContrasena(dto.getContrasena());
 		entidad.setTorre(dto.getTorre());
 		entidad.setPiso(dto.getPiso());
 		entidad.setApartamento(dto.getApartamento());
@@ -294,16 +346,164 @@ public class DataMapper {
 		return listaEntidad;
 	}
 
+	public static BicicleteroDTO convertirBicicleteroABicicleteroDTO(Bicicletero entidad) {
+		BicicleteroDTO dto = new BicicleteroDTO();
+		dto.setNumPuesto(entidad.getNumPuesto());
+		dto.setCapacidadMaxima(entidad.getCapacidadMaxima());
+		dto.setEstado(entidad.getEstado());
+		dto.setNumBicicletero(entidad.getNumBicicletero());
+		return dto;
+	}
+
+	public static Bicicletero convertirBicicleteroDTOABicicletero(BicicleteroDTO dto) {
+		Bicicletero entidad = new Bicicletero();
+		entidad.setNumPuesto(dto.getNumPuesto());
+		entidad.setCapacidadMaxima(dto.getCapacidadMaxima());
+		entidad.setEstado(dto.getEstado());
+		entidad.setNumBicicletero(dto.getNumBicicletero());
+		return entidad;
+	}
+
+	public static ArrayList<BicicleteroDTO> convertirListaBicicleteroAListaBicicleteroDTO(
+			ArrayList<Bicicletero> listaEntidad) {
+		ArrayList<BicicleteroDTO> listaDTO = new ArrayList<>();
+		for (Bicicletero entidad : listaEntidad) {
+			listaDTO.add(convertirBicicleteroABicicleteroDTO(entidad));
+		}
+		return listaDTO;
+	}
+
+	public static ArrayList<Bicicletero> convertirListaBicicleteroDTOAListaBicicletero(
+			ArrayList<BicicleteroDTO> listaDTO) {
+		ArrayList<Bicicletero> listaEntidad = new ArrayList<>();
+		for (BicicleteroDTO dto : listaDTO) {
+			listaEntidad.add(convertirBicicleteroDTOABicicletero(dto));
+		}
+		return listaEntidad;
+	}
+
+	public static ParqueaderoDTO convertirParqueaderoAParqueaderoDTO(Parqueadero entidad) {
+		ParqueaderoDTO dto = new ParqueaderoDTO();
+		dto.setNumeroParqueadero(entidad.getNumeroParqueadero());
+		dto.setEstado(entidad.getEstado());
+		return dto;
+	}
+
+	public static Parqueadero convertirParqueaderoDTOAParqueadero(ParqueaderoDTO dto) {
+		Parqueadero entidad = new Parqueadero();
+		entidad.setNumeroParqueadero(dto.getNumeroParqueadero());
+		entidad.setEstado(dto.getEstado());
+		return entidad;
+	}
+
+	public static ArrayList<ParqueaderoDTO> convertirListaParqueaderoAListaParqueaderoDTO(
+			ArrayList<Parqueadero> listaEntidad) {
+		ArrayList<ParqueaderoDTO> listaDTO = new ArrayList<>();
+		for (Parqueadero entidad : listaEntidad) {
+			listaDTO.add(convertirParqueaderoAParqueaderoDTO(entidad));
+		}
+		return listaDTO;
+	}
+
+	public static ArrayList<Parqueadero> convertirListaParqueaderoDTOAListaParqueadero(
+			ArrayList<ParqueaderoDTO> listaDTO) {
+		ArrayList<Parqueadero> listaEntidad = new ArrayList<>();
+		for (ParqueaderoDTO dto : listaDTO) {
+			listaEntidad.add(convertirParqueaderoDTOAParqueadero(dto));
+		}
+		return listaEntidad;
+	}
+
+	public static ParqueInfantilDTO convertirParqueInfantilAParqueInfantilDTO(ParqueInfantil entidad) {
+		ParqueInfantilDTO dto = new ParqueInfantilDTO();
+		dto.setEstado(entidad.getEstado());
+		dto.setMedidaCuadrada(entidad.getMedidaCuadrada());
+		dto.setEstaDisponible(entidad.isEstaDisponible());
+		dto.setCapacidadMaxima(entidad.getCapacidadMaxima());
+		dto.setHorario(entidad.getHorario());
+		return dto;
+	}
+
+	public static ParqueInfantil convertirParqueInfantilDTOAParqueInfantil(ParqueInfantilDTO dto) {
+		ParqueInfantil entidad = new ParqueInfantil();
+		entidad.setEstado(dto.getEstado());
+		entidad.setMedidaCuadrada(dto.getMedidaCuadrada());
+		entidad.setEstaDisponible(dto.isEstaDisponible());
+		entidad.setCapacidadMaxima(dto.getCapacidadMaxima());
+		entidad.setHorario(dto.getHorario());
+		return entidad;
+	}
+
+	public static ArrayList<ParqueInfantilDTO> convertirListaParqueInfantilAListaParqueInfantilDTO(
+			ArrayList<ParqueInfantil> listaEntidad) {
+		ArrayList<ParqueInfantilDTO> listaDTO = new ArrayList<>();
+		for (ParqueInfantil entidad : listaEntidad) {
+			listaDTO.add(convertirParqueInfantilAParqueInfantilDTO(entidad));
+		}
+		return listaDTO;
+	}
+
+	public static ArrayList<ParqueInfantil> convertirListaParqueInfantilDTOAListaParqueInfantil(
+			ArrayList<ParqueInfantilDTO> listaDTO) {
+		ArrayList<ParqueInfantil> listaEntidad = new ArrayList<>();
+		for (ParqueInfantilDTO dto : listaDTO) {
+			listaEntidad.add(convertirParqueInfantilDTOAParqueInfantil(dto));
+		}
+		return listaEntidad;
+	}
+
+	public static TorreDTO convertirTorreATorreDTO(Torre entidad) {
+		TorreDTO dto = new TorreDTO();
+		dto.setNumApartamento(entidad.getNumApartamento());
+		dto.setNumPiso(entidad.getNumPiso());
+		dto.setNumTorre(entidad.getNumTorre());
+		dto.setEstadoPanelSolar(entidad.getEstadoPanelSolar());
+		dto.setEstado(entidad.getEstado());
+		return dto;
+	}
+
+	public static Torre convertirTorreDTOATorre(TorreDTO dto) {
+		Torre entidad = new Torre();
+		entidad.setNumApartamento(dto.getNumApartamento());
+		entidad.setNumPiso(dto.getNumPiso());
+		entidad.setNumTorre(dto.getNumTorre());
+		entidad.setEstadoPanelSolar(dto.getEstadoPanelSolar());
+		entidad.setEstado(dto.getEstado());
+		return entidad;
+	}
+
+	public static ArrayList<TorreDTO> convertirListaTorreAListaTorreDTO(ArrayList<Torre> listaEntidad) {
+		ArrayList<TorreDTO> listaDTO = new ArrayList<>();
+		for (Torre entidad : listaEntidad) {
+			listaDTO.add(convertirTorreATorreDTO(entidad));
+		}
+		return listaDTO;
+	}
+
+	public static ArrayList<Torre> convertirListaTorreDTOAListaTorre(ArrayList<TorreDTO> listaDTO) {
+		ArrayList<Torre> listaEntidad = new ArrayList<>();
+		for (TorreDTO dto : listaDTO) {
+			listaEntidad.add(convertirTorreDTOATorre(dto));
+		}
+		return listaEntidad;
+	}
+
 	public static CanchaMultipleDTO convertirCanchaMultipleACanchaMultipleDTO(CanchaMultiple entidad) {
 		CanchaMultipleDTO dto = new CanchaMultipleDTO();
-		copiarDatosZonaComun(entidad, dto);
+		dto.setEstado(entidad.getEstado());
+		dto.setMedidaCuadrada(entidad.getMedidaCuadrada());
+		dto.setEstaDisponible(entidad.isEstaDisponible());
+		dto.setCapacidadMaxima(entidad.getCapacidadMaxima());
 		dto.setHorario(entidad.getHorario());
 		return dto;
 	}
 
 	public static CanchaMultiple convertirCanchaMultipleDTOACanchaMultiple(CanchaMultipleDTO dto) {
 		CanchaMultiple entidad = new CanchaMultiple();
-		copiarDatosZonaComun(dto, entidad);
+		entidad.setEstado(dto.getEstado());
+		entidad.setMedidaCuadrada(dto.getMedidaCuadrada());
+		entidad.setEstaDisponible(dto.isEstaDisponible());
+		entidad.setCapacidadMaxima(dto.getCapacidadMaxima());
 		entidad.setHorario(dto.getHorario());
 		return entidad;
 	}
@@ -328,7 +528,10 @@ public class DataMapper {
 
 	public static CoworkingDTO convertirCoworkingACoworkingDTO(Coworking entidad) {
 		CoworkingDTO dto = new CoworkingDTO();
-		copiarDatosZonaComun(entidad, dto);
+		dto.setEstado(entidad.getEstado());
+		dto.setMedidaCuadrada(entidad.getMedidaCuadrada());
+		dto.setEstaDisponible(entidad.isEstaDisponible());
+		dto.setCapacidadMaxima(entidad.getCapacidadMaxima());
 		dto.setNumeroDePuesto(entidad.getNumeroDePuesto());
 		dto.setTieneComputadores(entidad.isTieneComputadores());
 		dto.setTieneAccesoAInternet(entidad.isTieneAccesoAInternet());
@@ -337,7 +540,10 @@ public class DataMapper {
 
 	public static Coworking convertirCoworkingDTOACoworking(CoworkingDTO dto) {
 		Coworking entidad = new Coworking();
-		copiarDatosZonaComun(dto, entidad);
+		entidad.setEstado(dto.getEstado());
+		entidad.setMedidaCuadrada(dto.getMedidaCuadrada());
+		entidad.setEstaDisponible(dto.isEstaDisponible());
+		entidad.setCapacidadMaxima(dto.getCapacidadMaxima());
 		entidad.setNumeroDePuesto(dto.getNumeroDePuesto());
 		entidad.setTieneComputadores(dto.isTieneComputadores());
 		entidad.setTieneAccesoAInternet(dto.isTieneAccesoAInternet());
@@ -362,7 +568,10 @@ public class DataMapper {
 
 	public static SalonComunalDTO convertirSalonComunalASalonComunalDTO(SalonComunal entidad) {
 		SalonComunalDTO dto = new SalonComunalDTO();
-		copiarDatosZonaComun(entidad, dto);
+		dto.setEstado(entidad.getEstado());
+		dto.setMedidaCuadrada(entidad.getMedidaCuadrada());
+		dto.setEstaDisponible(entidad.isEstaDisponible());
+		dto.setCapacidadMaxima(entidad.getCapacidadMaxima());
 		dto.setHorario(entidad.getHorario());
 		dto.setUltimoMantenimiento(entidad.getUltimoMantenimiento());
 		dto.setCantidadSilla(entidad.getCantidadSilla());
@@ -371,7 +580,10 @@ public class DataMapper {
 
 	public static SalonComunal convertirSalonComunalDTOASalonComunal(SalonComunalDTO dto) {
 		SalonComunal entidad = new SalonComunal();
-		copiarDatosZonaComun(dto, entidad);
+		entidad.setEstado(dto.getEstado());
+		entidad.setMedidaCuadrada(dto.getMedidaCuadrada());
+		entidad.setEstaDisponible(dto.isEstaDisponible());
+		entidad.setCapacidadMaxima(dto.getCapacidadMaxima());
 		entidad.setHorario(dto.getHorario());
 		entidad.setUltimoMantenimiento(dto.getUltimoMantenimiento());
 		entidad.setCantidadSilla(dto.getCantidadSilla());
@@ -398,7 +610,10 @@ public class DataMapper {
 
 	public static ZonaBbqDTO convertirZonaBbqAZonaBbqDTO(ZonaBbq entidad) {
 		ZonaBbqDTO dto = new ZonaBbqDTO();
-		copiarDatosZonaComun(entidad, dto);
+		dto.setEstado(entidad.getEstado());
+		dto.setMedidaCuadrada(entidad.getMedidaCuadrada());
+		dto.setEstaDisponible(entidad.isEstaDisponible());
+		dto.setCapacidadMaxima(entidad.getCapacidadMaxima());
 		dto.setNumParrilla(entidad.getNumParrilla());
 		dto.setEstadoAsadero(entidad.getEstadoAsadero());
 		dto.setNumSilla(entidad.getNumSilla());
@@ -408,7 +623,10 @@ public class DataMapper {
 
 	public static ZonaBbq convertirZonaBbqDTOAZonaBbq(ZonaBbqDTO dto) {
 		ZonaBbq entidad = new ZonaBbq();
-		copiarDatosZonaComun(dto, entidad);
+		entidad.setEstado(dto.getEstado());
+		entidad.setMedidaCuadrada(dto.getMedidaCuadrada());
+		entidad.setEstaDisponible(dto.isEstaDisponible());
+		entidad.setCapacidadMaxima(dto.getCapacidadMaxima());
 		entidad.setNumParrilla(dto.getNumParrilla());
 		entidad.setEstadoAsadero(dto.getEstadoAsadero());
 		entidad.setNumSilla(dto.getNumSilla());
@@ -434,7 +652,10 @@ public class DataMapper {
 
 	public static ZonaMascotaDTO convertirZonaMascotaAZonaMascotaDTO(ZonaMascota entidad) {
 		ZonaMascotaDTO dto = new ZonaMascotaDTO();
-		copiarDatosZonaComun(entidad, dto);
+		dto.setEstado(entidad.getEstado());
+		dto.setMedidaCuadrada(entidad.getMedidaCuadrada());
+		dto.setEstaDisponible(entidad.isEstaDisponible());
+		dto.setCapacidadMaxima(entidad.getCapacidadMaxima());
 		dto.setHorario(entidad.getHorario());
 		dto.setTamanoMaximo(entidad.getTamanoMaximo());
 		dto.setEstadoDeCaneca(entidad.getEstadoDeCaneca());
@@ -444,7 +665,10 @@ public class DataMapper {
 
 	public static ZonaMascota convertirZonaMascotaDTOAZonaMascota(ZonaMascotaDTO dto) {
 		ZonaMascota entidad = new ZonaMascota();
-		copiarDatosZonaComun(dto, entidad);
+		entidad.setEstado(dto.getEstado());
+		entidad.setMedidaCuadrada(dto.getMedidaCuadrada());
+		entidad.setEstaDisponible(dto.isEstaDisponible());
+		entidad.setCapacidadMaxima(dto.getCapacidadMaxima());
 		entidad.setHorario(dto.getHorario());
 		entidad.setTamanoMaximo(dto.getTamanoMaximo());
 		entidad.setEstadoDeCaneca(dto.getEstadoDeCaneca());
