@@ -66,7 +66,7 @@ public class ZonaMascotaDTO extends ZonaComun {
 
 	@Override
 	public String toString() {
-		return "ZonaMascota [horario=" + horario + ", tamanoMaximo=" + tamanoMaximo + ", estadoDeCaneca="
+		return super.toString() +"ZonaMascota [horario=" + horario + ", tamanoMaximo=" + tamanoMaximo + ", estadoDeCaneca="
 				+ estadoDeCaneca + ", estadoBebederos=" + estadoBebederos + "]";
 	}
 	

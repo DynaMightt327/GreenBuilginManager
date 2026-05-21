@@ -58,7 +58,7 @@ public class VigilanteDTO extends Persona {
 
 	@Override
 	public String toString() {
-		return "Vigilante [horario=" + horario + ", tipoReporte=" + tipoReporte + ", contenidoReporte="
+		return super.toString() +"Vigilante [horario=" + horario + ", tipoReporte=" + tipoReporte + ", contenidoReporte="
 				+ contenidoReporte + "]";
 	}
 	

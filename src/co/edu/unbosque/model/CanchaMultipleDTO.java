@@ -34,7 +34,7 @@ public class CanchaMultipleDTO extends ZonaComun{
 
 	@Override
 	public String toString() {
-		return "CanchaMultiple [horario=" + horario + "]";
+		return super.toString() +"CanchaMultiple [horario=" + horario + "]";
 	}
 	
 	

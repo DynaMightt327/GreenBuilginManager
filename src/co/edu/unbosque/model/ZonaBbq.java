@@ -67,7 +67,7 @@ public class ZonaBbq extends ZonaComun {
 
 	@Override
 	public String toString() {
-		return "ZonaBbq [numParrilla=" + numParrilla + ", estadoAsadero=" + estadoAsadero + ", numSilla=" + numSilla
+		return super.toString() +"ZonaBbq [numParrilla=" + numParrilla + ", estadoAsadero=" + estadoAsadero + ", numSilla=" + numSilla
 				+ ", ultimoMantenimiento=" + ultimoMantenimiento + "]";
 	}
 	

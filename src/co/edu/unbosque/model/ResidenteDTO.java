@@ -183,7 +183,7 @@ public class ResidenteDTO extends Persona {
 
 	@Override
 	public String toString() {
-		return "Residente [torre=" + torre + ", apartamento=" + apartamento + ", piso=" + piso + ", tieneReporte="
+		return super.toString() +"Residente [torre=" + torre + ", apartamento=" + apartamento + ", piso=" + piso + ", tieneReporte="
 				+ tieneReporte + ", numeroReporte=" + numeroReporte + ", contenidoReporte=" + contenidoReporte
 				+ ", tieneMulta=" + tieneMulta + ", costoMulta=" + costoMulta + ", razonMulta=" + razonMulta
 				+ ", cantidadDeMulta=" + cantidadDeMulta + ", tieneParqueadero=" + tieneParqueadero

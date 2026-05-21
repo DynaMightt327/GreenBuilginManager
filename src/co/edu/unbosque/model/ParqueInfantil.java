@@ -37,7 +37,7 @@ public class ParqueInfantil extends ZonaComun {
 
 	@Override
 	public String toString() {
-		return "ParqueInfantil [horario=" + horario + "]";
+		return super.toString() +"ParqueInfantil [horario=" + horario + "]";
 	}
 
 	

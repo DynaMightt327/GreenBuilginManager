@@ -58,7 +58,7 @@ public class Administrador extends Persona {
 
 	@Override
 	public String toString() {
-		return "Administrador [conjuntoACargo=" + conjuntoACargo + ", salario=" + salario + ", tipoContrato="
+		return super.toString() + "Administrador [conjuntoACargo=" + conjuntoACargo + ", salario=" + salario + ", tipoContrato="
 				+ tipoContrato + "]";
 	}
 	

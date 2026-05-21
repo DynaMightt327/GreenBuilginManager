@@ -56,7 +56,7 @@ public class Coworking extends ZonaComun {
 
 	@Override
 	public String toString() {
-		return "Coworking [numeroDePuesto=" + numeroDePuesto + ", tieneComputadores=" + tieneComputadores
+		return super.toString() +"Coworking [numeroDePuesto=" + numeroDePuesto + ", tieneComputadores=" + tieneComputadores
 				+ ", tieneAccesoAInternet=" + tieneAccesoAInternet + "]";
 	}
 	

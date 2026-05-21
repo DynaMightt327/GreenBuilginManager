@@ -43,7 +43,7 @@ public class AvisoDTO {
 
 	@Override
 	public String toString() {
-		return "Aviso [tipoAviso=" + tipoAviso + ", contenido=" + contenido + ", fecha=" + fecha + "]";
+		return  "Aviso [tipoAviso=" + tipoAviso + ", contenido=" + contenido + ", fecha=" + fecha + "]";
 	}
 	
 	

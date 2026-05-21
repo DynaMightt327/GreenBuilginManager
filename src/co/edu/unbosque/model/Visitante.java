@@ -69,7 +69,7 @@ public class Visitante extends Persona {
 
 	@Override
 	public String toString() {
-		return "Visitante [torre=" + torre + ", piso=" + piso + ", apartamento=" + apartamento + ", esFrecuente="
+		return super.toString() +"Visitante [torre=" + torre + ", piso=" + piso + ", apartamento=" + apartamento + ", esFrecuente="
 				+ esFrecuente + "]";
 	}
 	

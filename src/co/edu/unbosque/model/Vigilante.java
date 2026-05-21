@@ -3,27 +3,20 @@ package co.edu.unbosque.model;
 public class Vigilante extends Persona {
 	
 	private String horario;
-	private String tipoReporte;
-	private String contenidoReporte;
 	
 	public Vigilante() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Vigilante(String horario, String tipoReporte, String contenidoReporte) {
+	public Vigilante(String horario) {
 		super();
 		this.horario = horario;
-		this.tipoReporte = tipoReporte;
-		this.contenidoReporte = contenidoReporte;
 	}
 
 	public Vigilante(String nombre, String apellido, int edad, String genero, String correo, long id, long telefono,
-			String rutaFoto, String estado, String contrasena, String horario, String tipoReporte,
-			String contenidoReporte) {
+			String rutaFoto, String estado, String contrasena, String horario) {
 		super(nombre, apellido, edad, genero, correo, id, telefono, rutaFoto, estado, contrasena);
 		this.horario = horario;
-		this.tipoReporte = tipoReporte;
-		this.contenidoReporte = contenidoReporte;
 	}
 
 	public Vigilante(String nombre, String apellido, int edad, String genero, String correo, long id, long telefono,
@@ -40,28 +33,10 @@ public class Vigilante extends Persona {
 		this.horario = horario;
 	}
 
-	public String getTipoReporte() {
-		return tipoReporte;
-	}
-
-	public void setTipoReporte(String tipoReporte) {
-		this.tipoReporte = tipoReporte;
-	}
-
-	public String getContenidoReporte() {
-		return contenidoReporte;
-	}
-
-	public void setContenidoReporte(String contenidoReporte) {
-		this.contenidoReporte = contenidoReporte;
-	}
-
 	@Override
 	public String toString() {
-		return "Vigilante [horario=" + horario + ", tipoReporte=" + tipoReporte + ", contenidoReporte="
-				+ contenidoReporte + "]";
+		return super.toString() + "Vigilante [horario=" + horario + "]";
 	}
-	
 	
 	
 

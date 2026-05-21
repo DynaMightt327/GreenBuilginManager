@@ -55,7 +55,7 @@ public class SalonComunal extends ZonaComun {
 
 	@Override
 	public String toString() {
-		return "SalonComunal [horario=" + horario + ", ultimoMantenimiento=" + ultimoMantenimiento + ", cantidadSilla="
+		return super.toString() +"SalonComunal [horario=" + horario + ", ultimoMantenimiento=" + ultimoMantenimiento + ", cantidadSilla="
 				+ cantidadSilla + "]";
 	}
 	
