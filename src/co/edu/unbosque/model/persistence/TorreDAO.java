@@ -1,21 +1,26 @@
 package co.edu.unbosque.model.persistence;
 
 import java.util.ArrayList;
-import co.edu.unbosque.model.Torre;
 
-public class TorreDAO implements DAO<Torre> {
+import co.edu.unbosque.model.Torre;
+import co.edu.unbosque.model.TorreDTO;
+
+public class TorreDAO implements DAO<Torre, TorreDTO> {
 
 	private ArrayList<Torre> listaTorres;
+	private final String URL_ARCHIVO_TEXTO = "torres.csv";
 	private final String URL_ARCHIVO_SERIALIZADO = "torres.dat";
+	private DataMapper dm;
 
 	public TorreDAO() {
 		listaTorres = new ArrayList<>();
+		dm = new DataMapper();
 		leerSerializado();
 	}
 
 	@Override
-	public void crear(Torre nuevoDato) {
-		listaTorres.add(nuevoDato);
+	public void crear(TorreDTO nuevoDato) {
+		listaTorres.add(DataMapper.convertirTorreDTOATorre(nuevoDato));
 		escribirSerializado();
 	}
 
@@ -31,11 +36,11 @@ public class TorreDAO implements DAO<Torre> {
 	}
 
 	@Override
-	public boolean actualizar(int index, Torre datoActualziado) {
+	public boolean actualizar(int index, TorreDTO datoActualizado) {
 		if (index < 0 || index >= listaTorres.size()) {
 			return false;
 		} else {
-			listaTorres.set(index, datoActualziado);
+			listaTorres.set(index, DataMapper.convertirTorreDTOATorre(datoActualizado));
 			escribirSerializado();
 			return true;
 		}
@@ -55,12 +60,12 @@ public class TorreDAO implements DAO<Torre> {
 
 	@Override
 	public String mostrar(int index) {
-		return listaTorres.get(index).toString();
+		return DataMapper.convertirTorreATorreDTO(listaTorres.get(index)).toString();
 	}
 
 	@Override
-	public ArrayList<Torre> mostrarTodo() {
-		return listaTorres;
+	public ArrayList<TorreDTO> mostrarTodo() {
+		return DataMapper.convertirListaTorreAListaTorreDTO(listaTorres);
 	}
 
 	@Override
@@ -69,7 +74,7 @@ public class TorreDAO implements DAO<Torre> {
 		for (Torre torre : listaTorres) {
 			sb.append(torre.toString() + "\n");
 		}
-		FileHandler.crearYEscribirArchivo("torres.csv", sb.toString());
+		FileHandler.crearYEscribirArchivo(URL_ARCHIVO_TEXTO, sb.toString());
 	}
 
 	public void escribirSerializado() {
@@ -91,5 +96,13 @@ public class TorreDAO implements DAO<Torre> {
 
 	public void setListaTorres(ArrayList<Torre> listaTorres) {
 		this.listaTorres = listaTorres;
+	}
+
+	public DataMapper getDm() {
+		return dm;
+	}
+
+	public void setDm(DataMapper dm) {
+		this.dm = dm;
 	}
 }
