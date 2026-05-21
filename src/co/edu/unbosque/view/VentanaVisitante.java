@@ -5,9 +5,12 @@ import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class VentanaVisitante extends JFrame {
 
+	private PanelRegistrarVisitante prv;
+	private JPanel panelBotones;
 	private JButton volver;
 	private JButton iniciarSesion;
 	private JButton registrar;
@@ -25,6 +28,16 @@ public class VentanaVisitante extends JFrame {
 		setResizable(false);
 		getContentPane().setBackground(Color.decode("#F5E6E8"));
 		getContentPane().setLayout(null);
+		
+		prv = new PanelRegistrarVisitante();
+		prv.setVisible(false);
+		add(prv);
+		
+		panelBotones = new JPanel();
+		panelBotones.setBounds(0, 0, 1100, 720);
+		panelBotones.setBackground(Color.decode("#FFFFFF"));
+		panelBotones.setLayout(null);
+		add(panelBotones);
 
 		volver = new JButton("VOLVER");
 		volver.setBounds(300, 200, 168, 45);
@@ -33,7 +46,7 @@ public class VentanaVisitante extends JFrame {
 		volver.setFont(new Font("Georgia", Font.BOLD, 12));
 		volver.setBackground(Color.decode("#eba66e"));
 		volver.setForeground(Color.black);
-		add(volver);
+		panelBotones.add(volver);
 
 		iniciarSesion = new JButton("INICIAR SESION");
 		iniciarSesion.setBounds(300, 350, 168, 45);
@@ -42,7 +55,7 @@ public class VentanaVisitante extends JFrame {
 		iniciarSesion.setFont(new Font("Georgia", Font.BOLD, 12));
 		iniciarSesion.setBackground(Color.decode("#eba66e"));
 		iniciarSesion.setForeground(Color.black);
-		add(iniciarSesion);
+		panelBotones.add(iniciarSesion);
 
 		registrar = new JButton("REGISTRAR");
 		registrar.setBounds(700, 200, 168, 45);
@@ -51,7 +64,7 @@ public class VentanaVisitante extends JFrame {
 		registrar.setFont(new Font("Georgia", Font.BOLD, 12));
 		registrar.setBackground(Color.decode("#eba66e"));
 		registrar.setForeground(Color.black);
-		add(registrar);
+		panelBotones.add(registrar);
 
 	}
 
@@ -77,6 +90,22 @@ public class VentanaVisitante extends JFrame {
 
 	public void setRegistrar(JButton registrar) {
 		this.registrar = registrar;
+	}
+
+	public PanelRegistrarVisitante getPrv() {
+		return prv;
+	}
+
+	public void setPrv(PanelRegistrarVisitante prv) {
+		this.prv = prv;
+	}
+
+	public JPanel getPanelBotones() {
+		return panelBotones;
+	}
+
+	public void setPanelBotones(JPanel panelBotones) {
+		this.panelBotones = panelBotones;
 	}
 
 }
