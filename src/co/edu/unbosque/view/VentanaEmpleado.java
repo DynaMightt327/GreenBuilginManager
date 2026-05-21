@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 public class VentanaEmpleado extends JFrame{
 	
 	private PanelRegistrarEmpleado pre;
+	private PanelIniciarSesion pis;
 	private JPanel panelBotones;
 	
 	private JButton volver;
@@ -33,6 +34,10 @@ public class VentanaEmpleado extends JFrame{
 		pre = new PanelRegistrarEmpleado();
 		pre.setVisible(false);
 		add(pre);
+		
+		pis = new PanelIniciarSesion();
+		pis.setVisible(false);
+		add(pis);
 		
 		panelBotones = new JPanel();
 		panelBotones.setBounds(0, 0, 1100, 720);
@@ -108,6 +113,14 @@ public class VentanaEmpleado extends JFrame{
 
 	public void setPanelBotones(JPanel panelBotones) {
 		this.panelBotones = panelBotones;
+	}
+
+	public PanelIniciarSesion getPis() {
+		return pis;
+	}
+
+	public void setPis(PanelIniciarSesion pis) {
+		this.pis = pis;
 	}
 
 }

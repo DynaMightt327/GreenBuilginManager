@@ -10,6 +10,8 @@ import javax.swing.JPanel;
 public class VentanaVisitante extends JFrame {
 
 	private PanelRegistrarVisitante prv;
+	private PanelIniciarSesion pis;
+	
 	private JPanel panelBotones;
 	private JButton volver;
 	private JButton iniciarSesion;
@@ -32,6 +34,10 @@ public class VentanaVisitante extends JFrame {
 		prv = new PanelRegistrarVisitante();
 		prv.setVisible(false);
 		add(prv);
+		
+		pis = new PanelIniciarSesion();
+		pis.setVisible(false);
+		add(pis);
 		
 		panelBotones = new JPanel();
 		panelBotones.setBounds(0, 0, 1100, 720);
@@ -106,6 +112,14 @@ public class VentanaVisitante extends JFrame {
 
 	public void setPanelBotones(JPanel panelBotones) {
 		this.panelBotones = panelBotones;
+	}
+
+	public PanelIniciarSesion getPis() {
+		return pis;
+	}
+
+	public void setPis(PanelIniciarSesion pis) {
+		this.pis = pis;
 	}
 
 }
