@@ -21,6 +21,7 @@ public class PanelPrincipalResidente extends JPanel {
 	private JButton verEspacios;
 	private JButton verMulta;
 	private JButton generarRepote;
+	private JButton inicio;
 	
 	private JPanel panelSup;
 	private JLabel bienvenida;
@@ -88,8 +89,17 @@ public class PanelPrincipalResidente extends JPanel {
 		volver.setForeground(Color.black);
 		panelIzq.add(volver);
 
+		inicio = new JButton("INICIO");
+		inicio.setBounds(15, 200, 100, 60);
+		inicio.setBorderPainted(false);
+		inicio.setLayout(null);
+		inicio.setFont(new Font("Arial", Font.BOLD, 12));
+		inicio.setBackground(Color.decode("#7984b7"));
+		inicio.setForeground(Color.black);
+		panelIzq.add(inicio);
+		
 		reservar = new JButton("RESERVAR");
-		reservar.setBounds(15, 200, 100, 60);
+		reservar.setBounds(15, 280, 100, 60);
 		reservar.setBorderPainted(false);
 		reservar.setLayout(null);
 		reservar.setFont(new Font("Arial", Font.BOLD, 12));
@@ -98,7 +108,7 @@ public class PanelPrincipalResidente extends JPanel {
 		panelIzq.add(reservar);
 	
 		verEspacios = new JButton("ESPACIOS");
-		verEspacios.setBounds(15, 280, 100, 60);
+		verEspacios.setBounds(15, 360, 100, 60);
 		verEspacios.setBorderPainted(false);
 		verEspacios.setLayout(null);
 		verEspacios.setFont(new Font("Arial", Font.BOLD, 12));
@@ -107,7 +117,7 @@ public class PanelPrincipalResidente extends JPanel {
 		panelIzq.add(verEspacios);
 		
 		verMulta = new JButton("MULTAS");
-		verMulta.setBounds(15, 360, 100, 60);
+		verMulta.setBounds(15, 440, 100, 60);
 		verMulta.setBorderPainted(false);
 		verMulta.setLayout(null);
 		verMulta.setFont(new Font("Arial", Font.BOLD, 12));
@@ -116,7 +126,7 @@ public class PanelPrincipalResidente extends JPanel {
 		panelIzq.add(verMulta);
 		
 		generarRepote = new JButton("REPORTAR");
-		generarRepote.setBounds(15, 440, 100, 60);
+		generarRepote.setBounds(15, 520, 100, 60);
 		generarRepote.setBorderPainted(false);
 		generarRepote.setLayout(null);
 		generarRepote.setFont(new Font("Arial", Font.BOLD, 12));
@@ -460,6 +470,14 @@ public class PanelPrincipalResidente extends JPanel {
 
 	public void setMapa(JLabel mapa) {
 		this.mapa = mapa;
+	}
+
+	public JButton getInicio() {
+	    return inicio;
+	}
+
+	public void setInicio(JButton inicio) {
+	    this.inicio = inicio;
 	}
 	
 }

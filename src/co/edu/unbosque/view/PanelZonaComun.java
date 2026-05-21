@@ -16,9 +16,9 @@ public class PanelZonaComun extends JPanel{
 	}
 
 	public void iniComponentes() {
-		this.setBounds(0, 0, 1100, 720);
+		this.setBounds(135, 120, 680, 610);
 		this.setLayout(null);
-		this.setBackground(Color.decode("#a8afd1"));
+		this.setBackground(Color.decode("#ead3f2"));
 		
 		
 		volver = new JButton("VOLVER");

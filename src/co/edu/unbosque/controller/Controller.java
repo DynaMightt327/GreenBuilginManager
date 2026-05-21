@@ -65,6 +65,12 @@ public class Controller implements ActionListener {
 		
 		vf.getVr().getPpr().getVolver().addActionListener(this);
 		vf.getVr().getPpr().getVolver().setActionCommand("volver_principal_residente");
+		
+		vf.getVr().getPpr().getVerEspacios().addActionListener(this);
+		vf.getVr().getPpr().getVerEspacios().setActionCommand("ver_zonas_comunes");
+		
+		vf.getVr().getPpr().getInicio().addActionListener(this);
+		vf.getVr().getPpr().getInicio().setActionCommand("inicio_residente");
 
 		// ===========EMPLEADO==============
 		vf.getVe().getVolver().addActionListener(this);
@@ -177,6 +183,14 @@ public class Controller implements ActionListener {
 		case "volver_principal_residente":{
 			vf.getVr().getPpr().setVisible(false);
 			vf.getVr().getPis().setVisible(true);
+			break;
+		}
+		case "ver_zonas_comunes":{
+			vf.getVr().getPpr().getPzc().setVisible(true);
+			break;
+		}
+		case "inicio_residente":{
+			vf.getVr().getPpr().getPzc().setVisible(false);
 			break;
 		}
 		// ===========EMPLEADO==============
