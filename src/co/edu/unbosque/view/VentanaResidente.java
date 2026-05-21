@@ -11,6 +11,7 @@ public class VentanaResidente extends JFrame{
 	
 	private PanelRegistrarResidente prr;
 	private PanelIniciarSesion pis;
+	private PanelPrincipalResidente ppr;
 	private JPanel panelBotones;
 	
 	private JButton volver;
@@ -38,13 +39,16 @@ public class VentanaResidente extends JFrame{
 		pis = new PanelIniciarSesion();
 		pis.setVisible(false);
 		add(pis);
+
+		ppr = new PanelPrincipalResidente();
+		ppr.setVisible(false);
+		add(ppr);
 		
 		panelBotones = new JPanel();
 		panelBotones.setBounds(0, 0, 1100, 720);
 		panelBotones.setBackground(Color.decode("#FFFFFF"));
 		panelBotones.setLayout(null);
 		add(panelBotones);
-		
 		
 		volver = new JButton("VOLVER");
 		volver.setBounds(300, 200, 168, 45);
@@ -121,6 +125,14 @@ public class VentanaResidente extends JFrame{
 
 	public void setPis(PanelIniciarSesion pis) {
 		this.pis = pis;
+	}
+
+	public PanelPrincipalResidente getPpr() {
+		return ppr;
+	}
+
+	public void setPpr(PanelPrincipalResidente ppr) {
+		this.ppr = ppr;
 	}
 
 }
